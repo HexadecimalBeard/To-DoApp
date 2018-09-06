@@ -1,13 +1,9 @@
 package com.exampleapp.to_do;
 
-import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
+import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.Button;
 import android.widget.ImageView;
 
 public class LoginActivity extends AppCompatActivity {
@@ -25,7 +21,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        ImageView loginScreenIcon = ( ImageView ) findViewById(R.id.loginScreenIcon);
+        ImageView loginScreenIcon = ( ImageView ) findViewById(R.id.activityLogin_Icon);
 
         ImageView loginscreenblueupper_imageView = ( ImageView ) findViewById(R.id.loginscreenblue_imageview);
 
