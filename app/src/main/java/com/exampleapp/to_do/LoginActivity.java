@@ -54,7 +54,7 @@ public class LoginActivity extends AppCompatActivity {
 
             anim=true;
 
-            //try
+
 
         }else{
 
@@ -63,8 +63,6 @@ public class LoginActivity extends AppCompatActivity {
         }
 
     }
-
-
 
 
 }
