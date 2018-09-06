@@ -44,7 +44,7 @@
         app:srcCompat="@drawable/todo_icon" />
 
     <RelativeLayout
-        android:id="@+id/relativeLayout"
+        android:id="@+id/activitylogin_relativelayout"
         android:layout_width="351dp"
         android:layout_height="238dp"
         android:layout_weight="1"
@@ -59,28 +59,28 @@
             android:id="@+id/activtylogin_edittext_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_below="@+id/activtylogin_relativelayout_textview">
+            android:layout_below="@+id/activtylogin_relativelayout_textview"
+            android:layout_marginLeft="10dp">
 
             <android.support.design.widget.TextInputEditText
 
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
-                android:inputType="textEmailAddress"/>
+                android:inputType="textEmailAddress" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_below="@+id/activtylogin_edittext_email">
+            android:layout_below="@+id/activtylogin_edittext_email"
+            android:layout_marginLeft="10dp">
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:inputType="textPassword"/>
+                android:inputType="textPassword" />
         </android.support.design.widget.TextInputLayout>
 
         <TextView
