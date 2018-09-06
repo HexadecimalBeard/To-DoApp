@@ -7,6 +7,7 @@
     tools:context=".LoginActivity"
     tools:layout_editor_absoluteY="81dp">
 
+
     <LinearLayout
         android:id="@+id/activitylogin_"
         android:layout_width="0dp"
@@ -14,8 +15,10 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
 
         <ImageView
             android:id="@+id/loginscreenblue_imageview"
@@ -36,8 +39,8 @@
     <ImageView
         android:id="@+id/activityLogin_Icon"
         android:layout_width="95dp"
-        android:layout_height="95dp"
-        android:layout_marginTop="92dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="44dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -45,42 +48,50 @@
 
     <RelativeLayout
         android:id="@+id/activitylogin_relativelayout"
-        android:layout_width="351dp"
-        android:layout_height="238dp"
+        android:layout_width="348dp"
+        android:layout_height="206dp"
+        android:layout_marginBottom="188dp"
+        android:layout_marginEnd="35dp"
+        android:layout_marginStart="35dp"
         android:layout_weight="1"
-        android:background="@drawable/todo_login"
+        android:background="@drawable/loginactivity_custom_relativelayout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.612">
+        app:layout_constraintTop_toBottomOf="@+id/activityLogin_Icon">
 
         <android.support.design.widget.TextInputLayout
             android:id="@+id/activtylogin_edittext_email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/activtylogin_relativelayout_textview"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:theme="@style/Custom.TextInputLayout">
 
             <android.support.design.widget.TextInputEditText
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Email"
-                android:inputType="textEmailAddress" />
+                android:inputType="textEmailAddress"
+                android:textColor="#FF5364" />
         </android.support.design.widget.TextInputLayout>
 
         <android.support.design.widget.TextInputLayout
+            android:id="@+id/activtylogin_edittext_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/activtylogin_edittext_email"
-            android:layout_marginLeft="10dp">
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:theme="@style/Custom.TextInputLayout">
 
             <android.support.design.widget.TextInputEditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="Password"
-                android:inputType="textPassword" />
+                android:inputType="textPassword"
+                android:textColor="#FF5364" />
         </android.support.design.widget.TextInputLayout>
 
         <TextView
@@ -89,10 +100,11 @@
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:layout_marginTop="27dp"
-            android:text="LOGIN" />
+            android:layout_marginTop="19dp"
+            android:text="LOGIN"
+            android:textColor="#FF5364"
+            android:textSize="22sp" />
     </RelativeLayout>
-
 
 
 </android.support.constraint.ConstraintLayout>

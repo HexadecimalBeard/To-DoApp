@@ -12,10 +12,9 @@
     <style name="Custom.TextInputLayout" parent="TextAppearance.AppCompat">
         <item name="android:textColorHint">#35495E</item>
 
-
         <item name="android:colorAccent">#35495E</item>
         <item name="android:colorControlNormal">#35495E</item>
-        <item name="android:colorControlActivated">#FF5364</item>
+        <item name="android:colorControlActivated">#1111</item>
 
 
     </style>
