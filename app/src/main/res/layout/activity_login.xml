@@ -34,14 +34,27 @@
     </LinearLayout>
 
     <ImageView
-        android:id="@+id/loginScreenIcon"
+        android:id="@+id/activityLogin_Icon"
         android:layout_width="95dp"
         android:layout_height="95dp"
-        android:layout_marginTop="90dp"
-        android:layout_weight="1"
+        android:layout_marginTop="92dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/todo_icon" />
+
+    <RelativeLayout
+        android:id="@+id/relativeLayout"
+        android:layout_width="351dp"
+        android:layout_height="238dp"
+        android:layout_weight="1"
+        android:background="@drawable/todo_login"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.612">
+
+    </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
