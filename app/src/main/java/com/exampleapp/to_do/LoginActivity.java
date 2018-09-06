@@ -5,6 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -35,10 +36,26 @@ public class LoginActivity extends AppCompatActivity {
 
         loginscreenwhitedown_imageView.animate().translationYBy(-1000).setDuration(675);
 
-        Animation startAnimation = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
-        loginScreenIcon.startAnimation(startAnimation);
+        Animation startAnimationIcon = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+        loginScreenIcon.startAnimation(startAnimationIcon);
+
+        RelativeLayout loginactivity_relativelayout = findViewById(R.id.activitylogin_relativelayout);
+
+        Animation startAnimationRelativeLayout = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_relativelayout);
+        loginactivity_relativelayout.startAnimation(startAnimationRelativeLayout);
 
     }
 
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
 
+
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+    }
 }
