@@ -9,11 +9,16 @@ import android.widget.RelativeLayout;
 
 public class LoginActivity extends AppCompatActivity {
 
+    boolean anim=false;
+    Animation startAnimationRelativeLayout;
+    Animation startAnimationIcon;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
 
     }
@@ -22,41 +27,44 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        ImageView loginScreenIcon = ( ImageView ) findViewById(R.id.activityLogin_Icon);
+        if(anim==false) {
+            RelativeLayout loginactivity_relativelayout = findViewById(R.id.activitylogin_relativelayout);
 
-        ImageView loginscreenblueupper_imageView = ( ImageView ) findViewById(R.id.loginscreenblue_imageview);
+            ImageView loginScreenIcon = (ImageView) findViewById(R.id.activityLogin_Icon);
 
-        ImageView loginscreenwhitedown_imageView = ( ImageView ) findViewById(R.id.loginscreenwhite_imageview);
+            ImageView loginscreenblueupper_imageView = (ImageView) findViewById(R.id.loginscreenblue_imageview);
 
-        loginscreenblueupper_imageView.setY(-1000);
+            ImageView loginscreenwhitedown_imageView = (ImageView) findViewById(R.id.loginscreenwhite_imageview);
 
-        loginscreenwhitedown_imageView.setY(1000);
 
-        loginscreenblueupper_imageView.animate().translationYBy(1000).setDuration(675);
+            loginscreenblueupper_imageView.setY(-1000);
 
-        loginscreenwhitedown_imageView.animate().translationYBy(-1000).setDuration(675);
+            loginscreenwhitedown_imageView.setY(1000);
 
-        Animation startAnimationIcon = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
-        loginScreenIcon.startAnimation(startAnimationIcon);
+            loginscreenblueupper_imageView.animate().translationYBy(1000).setDuration(675);
 
-        RelativeLayout loginactivity_relativelayout = findViewById(R.id.activitylogin_relativelayout);
+            loginscreenwhitedown_imageView.animate().translationYBy(-1000).setDuration(675);
 
-        Animation startAnimationRelativeLayout = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_relativelayout);
-        loginactivity_relativelayout.startAnimation(startAnimationRelativeLayout);
+            startAnimationIcon = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in);
+            loginScreenIcon.startAnimation(startAnimationIcon);
+
+
+            startAnimationRelativeLayout = AnimationUtils.loadAnimation(getApplicationContext(), R.anim.fade_in_relativelayout);
+            loginactivity_relativelayout.startAnimation(startAnimationRelativeLayout);
+
+            anim=true;
+
+
+
+        }else{
+
+            startAnimationIcon.cancel();
+            startAnimationRelativeLayout.cancel();
+        }
 
     }
 
-    @Override
-    protected void onSaveInstanceState(Bundle outState) {
-        super.onSaveInstanceState(outState);
 
 
 
-    }
-
-    @Override
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
-        super.onRestoreInstanceState(savedInstanceState);
-        //try
-    }
 }
