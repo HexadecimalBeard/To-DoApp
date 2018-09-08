@@ -24,7 +24,6 @@
         <activity android:name=".LoginActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
 
-
         </activity>
     </application>
 

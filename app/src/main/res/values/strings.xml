@@ -17,4 +17,9 @@
     <string name="email_hint">Email</string>
     <string name="password_hint">Password</string>
     <string name="loginActivity_login">LOGIN</string>
+    <string name="login_button">LOGIN</string>
+    <string name="donthaveanaccount_textview">Don\'t have an account?</string>
+    <string name="signup_textview">Sign up.</string>
+    <string name="forgotyourpassword_textview">Forgot your password?</string>
+    <string name="or_txtview">OR</string>
 </resources>

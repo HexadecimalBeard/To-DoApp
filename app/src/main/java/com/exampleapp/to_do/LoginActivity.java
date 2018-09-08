@@ -14,10 +14,12 @@ public class LoginActivity extends AppCompatActivity {
     Animation startAnimationIcon;
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+
 
 
 
@@ -27,7 +29,7 @@ public class LoginActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
 
-        if(anim==false) {
+        if(!anim) {
             RelativeLayout loginactivity_relativelayout = findViewById(R.id.activitylogin_relativelayout);
 
             ImageView loginScreenIcon = (ImageView) findViewById(R.id.activityLogin_Icon);
