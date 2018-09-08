@@ -19,14 +19,14 @@
         android:background="@drawable/activitylogin_button_rounded"
         android:text="@string/login_button"
         android:textColor="#FF5364"
-        app:layout_constraintBottom_toTopOf="@+id/guideline10"
+        app:layout_constraintBottom_toTopOf="@+id/activitylogin_horizontal_guideline3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline9"
+        app:layout_constraintTop_toTopOf="@+id/activitylogin_horizontal_guideline2"
         app:layout_constraintVertical_bias="0.83" />
 
     <LinearLayout
-        android:id="@+id/activitylogin_"
+        android:id="@+id/activitylogin_linearlayoutbase"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -59,10 +59,10 @@
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="6dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline7"
+        app:layout_constraintBottom_toTopOf="@+id/activitylogin_horizontal_guideline1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/activitylogin_"
+        app:layout_constraintTop_toTopOf="@+id/activitylogin_linearlayoutbase"
         app:layout_constraintVertical_bias="0.6"
         app:srcCompat="@drawable/todo_icon" />
 
@@ -79,7 +79,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/activitylogin_loginbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline7"
+        app:layout_constraintTop_toTopOf="@+id/activitylogin_horizontal_guideline1"
         app:layout_constraintVertical_bias="0.82">
 
         <android.support.design.widget.TextInputLayout
@@ -138,15 +138,15 @@
         android:text="@string/donthaveanaccount_textview"
         android:textColor="#35495E"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
-        app:layout_constraintEnd_toStartOf="@+id/guideline11"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline12"
-        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+        app:layout_constraintBottom_toTopOf="@+id/activitylogin_horizontal_guideline4"
+        app:layout_constraintEnd_toStartOf="@+id/activitylogin_vertical_guideline1"
+        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintStart_toStartOf="@+id/activitylogin_vertical_guideline2"
+        app:layout_constraintTop_toTopOf="@+id/activitylogin_horizontal_guideline3" />
 
     <TextView
         android:id="@+id/activitylogin_signup_textview"
-        android:layout_width="58dp"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="1dp"
         android:layout_marginEnd="8dp"
@@ -154,11 +154,11 @@
         android:text="@string/signup_textview"
         android:textColor="#FF5364"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline8"
+        app:layout_constraintBottom_toTopOf="@+id/activitylogin_horizontal_guideline4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/guideline11"
-        app:layout_constraintTop_toTopOf="@+id/guideline10" />
+        app:layout_constraintStart_toEndOf="@+id/barrier5"
+        app:layout_constraintTop_toTopOf="@+id/activitylogin_horizontal_guideline3" />
 
 
     <TextView
@@ -191,70 +191,78 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline13" />
+        app:layout_constraintTop_toTopOf="@+id/activitylogin_horizontal_guideline5" />
 
     <ImageView
-        android:id="@+id/imageView5"
+        android:id="@+id/activitylogin_lineorline_imageview"
         android:layout_width="0dp"
         android:layout_height="39dp"
         android:layout_marginBottom="2dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="1dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline13"
+        app:layout_constraintBottom_toTopOf="@+id/activitylogin_horizontal_guideline5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline8"
+        app:layout_constraintTop_toTopOf="@+id/activitylogin_horizontal_guideline4"
         app:layout_constraintVertical_bias="0.26999998"
         app:srcCompat="@drawable/line_or_line" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline7"
+        android:id="@+id/activitylogin_horizontal_guideline1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.25" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline8"
+        android:id="@+id/activitylogin_horizontal_guideline4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.76" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline9"
+        android:id="@+id/activitylogin_horizontal_guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.61" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline10"
+        android:id="@+id/activitylogin_horizontal_guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.71" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline13"
+        android:id="@+id/activitylogin_horizontal_guideline5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.85" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline11"
+        android:id="@+id/activitylogin_vertical_guideline1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.65" />
+        app:layout_constraintGuide_percent="0.7" />
 
     <android.support.constraint.Guideline
-        android:id="@+id/guideline12"
+        android:id="@+id/activitylogin_vertical_guideline2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.24" />
+
+    <android.support.constraint.Barrier
+        android:id="@+id/barrier5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="right"
+        app:constraint_referenced_ids="activitylogin_donthaveanacc_textview"
+        tools:layout_editor_absoluteY="658dp" />
 
 </android.support.constraint.ConstraintLayout>
