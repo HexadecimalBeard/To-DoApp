@@ -18,8 +18,8 @@
     <string name="password_hint">Password</string>
     <string name="loginActivity_login">LOGIN</string>
     <string name="login_button">LOGIN</string>
-    <string name="donthaveanaccount_textview">Don\'t have an account?</string>
-    <string name="signup_textview">Sign up.</string>
-    <string name="forgotyourpassword_textview">Forgot your password?</string>
-    <string name="or_txtview">OR</string>
+    <string name="signup_button">Register</string>
+    <string name="forgotpassword_textview">Forgot password?</string>
+    <string name="username_hint">Username</string>
+    <string name="signinwithgoogle_button">SIGN IN WITH GOOGLE</string>
 </resources>
