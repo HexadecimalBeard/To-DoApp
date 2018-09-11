@@ -13,57 +13,62 @@
         android:id="@+id/activitylogin_signinwithgoogle_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="185dp"
+        android:layout_marginBottom="186dp"
         android:layout_marginStart="1dp"
         android:background="@drawable/activitylogin_googlesignin"
         android:drawablePadding="8dp"
         android:drawableStart="@drawable/activitylogin_googlelogin"
+        android:fontFamily="@font/roboto_medium"
         android:padding="10dp"
-        android:text="Sign in with Google"
+        android:text="@string/signinwithgoogle_button"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activitylogin_linearlayout" />
+        app:layout_constraintTop_toBottomOf="@+id/activitysignup_linearlayout" />
 
     <TextView
         android:id="@+id/activitylogin_forgotpassword_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="236dp"
-        android:layout_marginEnd="5dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="237dp"
+        android:layout_marginStart="5dp"
+        android:fontFamily="@font/roboto_thin"
         android:text="@string/forgotpassword_textview"
         android:textColor="#35495E"
-        android:textSize="18sp"
+        android:textSize="15sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activitylogin_relativelayout" />
+        app:layout_constraintStart_toStartOf="@+id/relativelayout_common_background"
+        app:layout_constraintTop_toBottomOf="@+id/activitysignup_linearlayout" />
 
     <Button
         android:id="@+id/activitylogin_login_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="75dp"
-        android:layout_marginStart="324dp"
+        android:layout_width="107dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="14dp"
         android:layout_marginTop="166dp"
         android:background="@drawable/activitylogin_register_button"
+        android:fontFamily="@font/roboto_medium"
         android:text="@string/signup_button"
         android:textAllCaps="false"
         android:textColor="#35495E"
-        app:layout_constraintBottom_toTopOf="@+id/activitylogin_relativelayout"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/activitysignup_linearlayout"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
-        android:id="@+id/activitylogin_linearlayout"
+        android:id="@+id/activitysignup_linearlayout"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginBottom="39dp"
-        android:layout_marginEnd="9dp"
+        android:layout_marginEnd="12dp"
         android:layout_marginStart="1dp"
         android:layout_marginTop="232dp"
         android:background="@drawable/loginactivity_custom_relativelayout"
         android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/activitylogin_signinwithgoogle_button"
-        app:layout_constraintEnd_toStartOf="@+id/activitylogin_login_button"
+        app:layout_constraintEnd_toEndOf="@+id/relativelayout_common_background"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
@@ -75,10 +80,13 @@
             android:layout_weight="1"
             android:drawablePadding="8dp"
             android:drawableStart="@drawable/activitylogin_email_sign"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/email_hint"
             android:inputType="textEmailAddress"
             android:textColor="#35495E"
-            android:textColorHint="#35495E" />
+            android:textColorHint="#35495E"
+            android:textSize="20sp"
+            android:theme="@style/MyEdittext" />
 
         <EditText
             android:id="@+id/activitylogin_password_edittext"
@@ -89,23 +97,27 @@
             android:layout_weight="1"
             android:drawablePadding="8dp"
             android:drawableStart="@drawable/activitylogin_password_image"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/password_hint"
             android:inputType="textPassword"
             android:textColor="#35495E"
-            android:textColorHint="#35495E" />
+            android:textColorHint="#35495E"
+            android:textSize="20sp"
+            android:theme="@style/MyEdittext" />
 
     </LinearLayout>
 
     <RelativeLayout
-        android:id="@+id/activitylogin_relativelayout"
+        android:id="@+id/relativelayout_common_background"
         android:layout_width="50dp"
-        android:layout_height="0dp"
+        android:layout_height="43dp"
         android:layout_marginBottom="63dp"
+        android:layout_marginEnd="76dp"
+        android:layout_marginTop="61dp"
         android:background="@drawable/activitylogin_circle_relativelayout"
         app:layout_constraintBottom_toTopOf="@+id/activitylogin_forgotpassword_textview"
-        app:layout_constraintEnd_toEndOf="@+id/activitylogin_linearlayout"
-        app:layout_constraintStart_toEndOf="@+id/activitylogin_linearlayout"
-        app:layout_constraintTop_toBottomOf="@+id/activitylogin_login_button">
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/activitysignup_linearlayout">
 
         <Button
             android:id="@+id/activitylogin_entrybuttonarrow"
