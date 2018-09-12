@@ -22,4 +22,9 @@
     <string name="forgotpassword_textview">Forgot password?</string>
     <string name="username_hint">Username</string>
     <string name="signinwithgoogle_button">SIGN IN WITH GOOGLE</string>
+    <string name="forgotpass_close">Close</string>
+    <string name="forgotpass_checkemail">Check your email.</string>
+    <string name="forgotpass_send">SEND</string>
+    <string name="forgotpass_enteremail">Enter your email address to reset your password.</string>
+    <string name="forgotpass_emailhint">Email</string>
 </resources>

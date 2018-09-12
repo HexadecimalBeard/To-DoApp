@@ -20,16 +20,13 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
-    RelativeLayout forgotpasssendUp,forgotpasssendDown;
-    LinearLayout forgotpasssendLinear;
     CardView forgotpasssendCardview;
-
     Dialog forgotDailog;
     TextView forgotpasssendNotify,activityloginTextview;
     ImageButton forgotpasssendImagebutton;
-    ImageView   forgotpasssendImageView;
-    EditText   forgotpasssendEdittext;
-    Button     forgotpasssendButton;
+    ImageView forgotpasssendImageView;
+    EditText forgotpasssendEdittext;
+    Button forgotpasssendButton;
 
 
     @Override

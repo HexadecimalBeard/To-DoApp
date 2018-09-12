@@ -51,11 +51,11 @@
             android:layout_weight="1"
             android:drawablePadding="8dp"
             android:drawableStart="@drawable/activitylogin_email_image"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/username_hint"
             android:inputType="textPersonName"
             android:textColor="#35495E"
-            android:textColorHint="#35495E"
+            android:textColorHint="#B0BEC5"
             android:textSize="18sp"
             android:theme="@style/MyEdittext" />
 
@@ -67,11 +67,11 @@
             android:layout_weight="1"
             android:drawablePadding="8dp"
             android:drawableStart="@drawable/activitylogin_email_sign"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/email_hint"
             android:inputType="textEmailAddress"
             android:textColor="#35495E"
-            android:textColorHint="#35495E"
+            android:textColorHint="#B0BEC5"
             android:textSize="18sp"
             android:theme="@style/MyEdittext" />
 
@@ -84,11 +84,11 @@
             android:layout_weight="1"
             android:drawablePadding="8dp"
             android:drawableStart="@drawable/activitylogin_password_image"
-            android:fontFamily="@font/roboto_bold"
+            android:fontFamily="@font/roboto_medium"
             android:hint="@string/password_hint"
             android:inputType="textPassword"
             android:textColor="#35495E"
-            android:textColorHint="#35495E"
+            android:textColorHint="#B0BEC5"
             android:textSize="18sp"
             android:theme="@style/MyEdittext" />
 
