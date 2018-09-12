@@ -86,7 +86,7 @@
 
         <EditText
             android:id="@+id/activitylogin_email_edittext"
-            android:layout_width="273dp"
+            android:layout_width="265dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="21dp"
             android:layout_weight="1"
@@ -102,7 +102,7 @@
 
         <EditText
             android:id="@+id/activitylogin_password_edittext"
-            android:layout_width="273dp"
+            android:layout_width="265dp"
             android:layout_height="wrap_content"
             android:layout_marginBottom="21dp"
             android:layout_marginTop="5dp"
