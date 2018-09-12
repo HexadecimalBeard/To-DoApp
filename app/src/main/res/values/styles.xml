@@ -18,4 +18,13 @@
 
     </style>
 
+    <style name="ForgotPassEdittext" parent="TextAppearance.AppCompat">
+        <item name="android:textColorHint">#FFA726</item>
+
+        <item name="android:colorAccent">#FFA726</item>
+        <item name="android:colorControlNormal">#FFA726</item>
+        <item name="android:colorControlActivated">#FFA726</item>
+
+    </style>
+
 </resources>

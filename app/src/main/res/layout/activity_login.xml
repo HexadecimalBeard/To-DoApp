@@ -22,6 +22,7 @@
         android:fontFamily="@font/roboto_medium"
         android:padding="10dp"
         android:text="@string/signinwithgoogle_button"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
