@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
 
         Window dialogWindow=forgotDailog.getWindow();
         WindowManager.LayoutParams lp=dialogWindow.getAttributes();
-        dialogWindow.setGravity(Gravity.CENTER | Gravity.LEFT | Gravity.TOP);
+        dialogWindow.setGravity(Gravity.CENTER | Gravity.LEFT | Gravity.TOP| Gravity.RIGHT |Gravity.BOTTOM);
 
         // lp.x=100; lp.y=100;
         lp.width=500; lp.height=600; lp.alpha=1f;
