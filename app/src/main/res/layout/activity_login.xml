@@ -20,6 +20,7 @@
         android:drawablePadding="8dp"
         android:drawableStart="@drawable/activitylogin_googlelogin"
         android:fontFamily="@font/roboto_medium"
+        android:onClick="loginwithGoogle"
         android:padding="10dp"
         android:text="@string/signinwithgoogle_button"
         android:textColor="#FFFFFF"

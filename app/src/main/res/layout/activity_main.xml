@@ -19,7 +19,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-
+    <Button
+        android:id="@+id/signout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="60dp"
+        android:layout_marginStart="9dp"
+        android:onClick="signout"
+        android:text="Sıgn out"
+        app:layout_constraintBottom_toTopOf="@+id/buttonpass"
+        app:layout_constraintStart_toStartOf="@+id/buttonpass" />
 
 
 </android.support.constraint.ConstraintLayout>
