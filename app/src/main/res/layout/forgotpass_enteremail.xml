@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/forgotpass_baserelativelayout"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     tools:layout_editor_absoluteY="81dp">
@@ -13,7 +12,6 @@
         android:layout_height="403dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        app:cardCornerRadius="5dp"
         tools:layout_editor_absoluteY="92dp">
 
 
@@ -38,6 +36,7 @@
                     android:layout_alignParentTop="true"
                     android:layout_margin="0dp"
                     android:padding="0dp"
+                    android:background="@drawable/forgotpass_imagebutton"
                     app:srcCompat="@mipmap/forgotpass_closebutton" />
 
                 <ImageView
@@ -48,7 +47,7 @@
                     android:background="@drawable/forgotpass_messageimage" />
             </RelativeLayout>
 
-            <RelativeLayout
+            <android.support.constraint.ConstraintLayout
                 android:id="@+id/forgotpasssend_relativelayoutdown"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -62,47 +61,67 @@
                     android:layout_height="wrap_content"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="29dp"
-                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="20dp"
                     android:fontFamily="@font/roboto_medium"
-                    android:text="@string/forgotpass_enteremail"
-                    android:textAlignment="center"
+                    android:gravity="center"
+                    android:text="@string/forgotpass_notifytextview"
                     android:textColor="#FFA726"
                     android:textSize="16sp"
-                    android:layout_above="@id/forgotpasssend_edittext"
-                    />
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
                 <EditText
                     android:id="@+id/forgotpasssend_edittext"
-                    android:layout_width="300dp"
-                    android:layout_height="51dp"
+                    android:layout_width="0dp"
+                    android:layout_height="52dp"
                     android:layout_alignParentTop="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="70dp"
+                    android:layout_marginStart="70dp"
+                    android:layout_marginTop="8dp"
                     android:ems="10"
                     android:fontFamily="@font/roboto_medium"
                     android:hint="@string/forgotpass_emailhint"
                     android:inputType="textEmailAddress"
                     android:textColor="#FFA726"
-                    android:theme="@style/ForgotPassEdittext" />
+                    android:theme="@style/ForgotPassEdittext"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="@+id/guideline" />
 
                 <Button
+
                     android:id="@+id/forgotpasssend_button"
-                    android:layout_width="194dp"
+                    android:layout_width="149dp"
                     android:layout_height="wrap_content"
                     android:layout_alignParentBottom="true"
                     android:layout_centerHorizontal="true"
-                    android:layout_margin="20dp"
-                    android:layout_marginBottom="25dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginTop="8dp"
                     android:background="@drawable/forgotpass_dialog_button"
                     android:fontFamily="@font/roboto_medium"
                     android:text="@string/forgotpass_send"
                     android:textColor="#FFA726"
                     android:textSize="20sp"
-                    android:layout_below="@id/forgotpasssend_edittext"/>
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/forgotpasssend_edittext" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.22" />
 
 
-            </RelativeLayout>
+            </android.support.constraint.ConstraintLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
 

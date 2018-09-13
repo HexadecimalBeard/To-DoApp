@@ -20,13 +20,13 @@ import android.widget.Toast;
 
 public class LoginActivity extends AppCompatActivity {
 
-    CardView forgotpasssendCardview;
-    Dialog forgotDailog;
-    TextView forgotpasssendNotify,activityloginTextview;
-    ImageButton forgotpasssendImagebutton;
-    ImageView forgotpasssendImageView;
+    CardView forgotpasssendCardview, forgotpassCheckCardview;
+    Dialog forgotDailog, forgotCheckDialog;
+    TextView forgotpasssendNotify,activityloginTextview, forgotpassCheckTextview;
+    ImageButton forgotpasssendImagebutton, forgotpassCheckImageButton;
+    ImageView forgotpasssendImageView, forgotpassCheckImageView;
     EditText forgotpasssendEdittext;
-    Button forgotpasssendButton;
+    Button forgotpasssendButton, forgotpassCheckButton;
 
 
     @Override
@@ -46,6 +46,14 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         forgotDailog =new Dialog(this);
+        forgotCheckDialog = new Dialog(this);
+
+        Window dialogWindowCheck = forgotCheckDialog.getWindow();
+        WindowManager.LayoutParams lpCheck = dialogWindowCheck.getAttributes();
+        dialogWindowCheck.setGravity(Gravity.CENTER | Gravity.LEFT | Gravity.TOP| Gravity.RIGHT |Gravity.BOTTOM);
+
+        lpCheck.width = 500; lpCheck.height = 600; lpCheck.alpha = 1f;
+        dialogWindowCheck.setAttributes(lpCheck);
 
         Window dialogWindow=forgotDailog.getWindow();
         WindowManager.LayoutParams lp=dialogWindow.getAttributes();
@@ -78,8 +86,6 @@ public class LoginActivity extends AppCompatActivity {
         forgotpasssendEdittext=forgotDailog.findViewById(R.id.forgotpasssend_edittext);
         forgotpasssendCardview=forgotDailog.findViewById(R.id.forgotpass_entercardview);
 
-
-
         forgotpasssendImagebutton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -90,13 +96,56 @@ public class LoginActivity extends AppCompatActivity {
         forgotpasssendButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getApplicationContext(),forgotpasssendEdittext.getText().toString(),Toast.LENGTH_LONG).show();
+
+                if(!forgotpasssendEdittext.getText().toString().isEmpty()){
+
+                    forgotDailog.dismiss();
+
+                    showdialogCheck();
+
+                    forgotpassCheckButton.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View view) {
+                            forgotDailog.dismiss();
+                        }
+                    });
+
+                } else {
+
+                    Toast.makeText(getApplicationContext(),"Enter valid email address!",Toast.LENGTH_LONG).show();
+                }
             }
         });
 
-
-       //forgotDailog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         forgotDailog.show();
+    }
+
+    public void showdialogCheck(){
+
+        forgotCheckDialog.setContentView(R.layout.forgotpass_checkemail);
+
+        forgotpassCheckButton = forgotCheckDialog.findViewById(R.id.forgotpasscheck_closebutton);
+        forgotpassCheckTextview = forgotCheckDialog.findViewById(R.id.forgotpass_check_textview);
+        forgotpassCheckImageView = forgotCheckDialog.findViewById(R.id.forgotpass_checkimageview);
+        forgotpassCheckCardview = forgotCheckDialog.findViewById(R.id.forgotpass_checkcardview);
+        forgotpassCheckImageButton = forgotCheckDialog.findViewById(R.id.forgotpass_checkimagebutton);
+
+        forgotpassCheckButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                forgotCheckDialog.dismiss();
+                System.out.println("deneme");
+            }
+        });
+
+        forgotpassCheckImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                forgotCheckDialog.dismiss();
+            }
+        });
+
+        forgotCheckDialog.show();
 
     }
 
