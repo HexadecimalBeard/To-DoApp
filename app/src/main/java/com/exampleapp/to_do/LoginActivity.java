@@ -48,6 +48,7 @@ public class LoginActivity extends AppCompatActivity {
         forgotDailog =new Dialog(this);
         forgotCheckDialog = new Dialog(this);
 
+        //forgotCheckDialog
         Window dialogWindowCheck = forgotCheckDialog.getWindow();
         WindowManager.LayoutParams lpCheck = dialogWindowCheck.getAttributes();
         dialogWindowCheck.setGravity(Gravity.CENTER | Gravity.LEFT | Gravity.TOP| Gravity.RIGHT |Gravity.BOTTOM);
@@ -55,6 +56,7 @@ public class LoginActivity extends AppCompatActivity {
         lpCheck.width = 500; lpCheck.height = 600; lpCheck.alpha = 1f;
         dialogWindowCheck.setAttributes(lpCheck);
 
+        //forgotDailog
         Window dialogWindow=forgotDailog.getWindow();
         WindowManager.LayoutParams lp=dialogWindow.getAttributes();
         dialogWindow.setGravity(Gravity.CENTER | Gravity.LEFT | Gravity.TOP| Gravity.RIGHT |Gravity.BOTTOM);
@@ -73,9 +75,7 @@ public class LoginActivity extends AppCompatActivity {
                 showdialog();
             }
         });
-
     }
-
     public void showdialog(){
 
         forgotDailog.setContentView(R.layout.forgotpass_enteremail);
@@ -94,6 +94,7 @@ public class LoginActivity extends AppCompatActivity {
         });
 
         forgotpasssendButton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
 
@@ -102,28 +103,16 @@ public class LoginActivity extends AppCompatActivity {
                     forgotDailog.dismiss();
 
                     showdialogCheck();
-
-                    forgotpassCheckButton.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View view) {
-                            forgotDailog.dismiss();
-                        }
-                    });
-
                 } else {
-
                     Toast.makeText(getApplicationContext(),"Enter valid email address!",Toast.LENGTH_LONG).show();
                 }
             }
         });
-
         forgotDailog.show();
     }
-
     public void showdialogCheck(){
 
         forgotCheckDialog.setContentView(R.layout.forgotpass_checkemail);
-
         forgotpassCheckButton = forgotCheckDialog.findViewById(R.id.forgotpasscheck_closebutton);
         forgotpassCheckTextview = forgotCheckDialog.findViewById(R.id.forgotpass_check_textview);
         forgotpassCheckImageView = forgotCheckDialog.findViewById(R.id.forgotpass_checkimageview);
@@ -134,19 +123,14 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 forgotCheckDialog.dismiss();
-                System.out.println("deneme");
             }
         });
-
         forgotpassCheckImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 forgotCheckDialog.dismiss();
             }
         });
-
         forgotCheckDialog.show();
-
     }
-
 }
