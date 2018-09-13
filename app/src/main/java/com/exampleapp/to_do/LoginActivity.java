@@ -10,6 +10,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -32,7 +34,9 @@ public class LoginActivity extends AppCompatActivity {
     ImageButton forgotpasssendImagebutton, forgotpassCheckImageButton;
     ImageView forgotpasssendImageView, forgotpassCheckImageView;
     EditText forgotpasssendEdittext,activitylogin_EmailEdittext,activitylogin_PasswordEdittext;
-    Button forgotpasssendButton, forgotpassCheckButton,activitylogin_EnterappButton,activitylogin_ResgisterButton;
+    Button forgotpasssendButton, forgotpassCheckButton;
+
+    Animation animateCheckImageview;
 
 
     @Override
@@ -42,7 +46,6 @@ public class LoginActivity extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
 
-        activitylogin_EnterappButton= findViewById(R.id.activitylogin_enterapp_button);
         forgotDailog =new Dialog(this);
         forgotCheckDialog = new Dialog(this);
 
@@ -116,6 +119,17 @@ public class LoginActivity extends AppCompatActivity {
         forgotpassCheckImageView = forgotCheckDialog.findViewById(R.id.forgotpass_checkimageview);
         forgotpassCheckCardview = forgotCheckDialog.findViewById(R.id.forgotpass_checkcardview);
         forgotpassCheckImageButton = forgotCheckDialog.findViewById(R.id.forgotpass_checkimagebutton);
+
+        animateCheckImageview = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
+        forgotpassCheckImageView.startAnimation(animateCheckImageview);
+        forgotpassCheckImageView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                forgotpassCheckImageView.setVisibility(View.VISIBLE);
+                forgotpassCheckImageView.animate().scaleX(1.5f).scaleY(1.5f).setDuration(2000);
+                forgotpassCheckImageView.animate().translationXBy(400).translationYBy(-250).setDuration(2000);
+            }
+        },1500);
 
         forgotpassCheckButton.setOnClickListener(new View.OnClickListener() {
             @Override

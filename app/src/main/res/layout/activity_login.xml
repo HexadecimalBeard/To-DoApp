@@ -39,7 +39,7 @@
         android:layout_marginTop="6dp"
         android:fontFamily="@font/roboto_thin"
         android:text="@string/forgotpassword_textview"
-        android:textColor="#35495E"
+        android:textColor="#FFA726"
         android:textSize="15sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/activitylogin_horizontalguideline1"
@@ -96,7 +96,7 @@
             android:fontFamily="@font/roboto_medium"
             android:hint="@string/email_hint"
             android:inputType="textEmailAddress"
-            android:textColor="#35495E"
+            android:textColor="#3c3c3c"
             android:textColorHint="#B0BEC5"
             android:textSize="18sp"
             android:theme="@style/MyEdittext" />
@@ -113,7 +113,7 @@
             android:fontFamily="@font/roboto_medium"
             android:hint="@string/password_hint"
             android:inputType="textPassword"
-            android:textColor="#35495E"
+            android:textColor="#3c3c3c"
             android:textColorHint="#B0BEC5"
             android:textSize="18sp"
             android:theme="@style/MyEdittext" />

@@ -55,7 +55,7 @@
             android:fontFamily="@font/roboto_medium"
             android:hint="@string/username_hint"
             android:inputType="textPersonName"
-            android:textColor="#35495E"
+            android:textColor="#3C3C3C"
             android:textColorHint="#B0BEC5"
             android:textSize="18sp"
             android:theme="@style/MyEdittext" />
@@ -71,7 +71,7 @@
             android:fontFamily="@font/roboto_medium"
             android:hint="@string/email_hint"
             android:inputType="textEmailAddress"
-            android:textColor="#35495E"
+            android:textColor="#3C3C3C"
             android:textColorHint="#B0BEC5"
             android:textSize="18sp"
             android:theme="@style/MyEdittext" />
@@ -88,7 +88,7 @@
             android:fontFamily="@font/roboto_medium"
             android:hint="@string/password_hint"
             android:inputType="textPassword"
-            android:textColor="#35495E"
+            android:textColor="#3C3C3C"
             android:textColorHint="#B0BEC5"
             android:textSize="18sp"
             android:theme="@style/MyEdittext" />

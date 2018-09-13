@@ -6,8 +6,8 @@
                 android:topRightRadius="300dp"/>
             <solid android:color="#FFFF" />
             <stroke
-                android:width="2dip"
-                android:color="#DEDEDE" />
+                android:width="1dip"
+                android:color="#FFA726" />
             <padding
                 android:bottom="0dp"
                 android:left="0dp"
