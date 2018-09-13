@@ -18,6 +18,7 @@
         android:layout_marginTop="8dp"
         android:background="@drawable/activitysignup_customlogin_button"
         android:fontFamily="@font/roboto_medium"
+        android:onClick="backlogin"
         android:text="@string/login_button"
         android:textAllCaps="false"
         android:textColor="#ffffff"
@@ -118,7 +119,8 @@
             android:layout_margin="15dp"
             android:width="20dp"
             android:height="20dp"
-            android:background="@drawable/activitysignup_tick_button" />
+            android:background="@drawable/activitysignup_tick_button"
+            android:onClick="register" />
     </RelativeLayout>
 
     <android.support.constraint.Guideline

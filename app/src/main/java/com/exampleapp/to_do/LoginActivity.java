@@ -3,50 +3,46 @@ package com.exampleapp.to_do;
 import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.CardView;
 import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+
 public class LoginActivity extends AppCompatActivity {
+
+    private FirebaseAuth mAuth;
 
     CardView forgotpasssendCardview, forgotpassCheckCardview;
     Dialog forgotDailog, forgotCheckDialog;
     TextView forgotpasssendNotify,activityloginTextview, forgotpassCheckTextview;
     ImageButton forgotpasssendImagebutton, forgotpassCheckImageButton;
     ImageView forgotpasssendImageView, forgotpassCheckImageView;
-    EditText forgotpasssendEdittext;
-    Button forgotpasssendButton, forgotpassCheckButton;
-    Animation animateCheckImageview;
-    
+    EditText forgotpasssendEdittext,activitylogin_EmailEdittext,activitylogin_PasswordEdittext;
+    Button forgotpasssendButton, forgotpassCheckButton,activitylogin_EnterappButton,activitylogin_ResgisterButton;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        Button btn= findViewById(R.id.activitylogin_login_button);
+        mAuth=FirebaseAuth.getInstance();
 
-        btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent= new Intent(getApplicationContext(),SignUpActivity.class);
-                startActivity(intent);
-
-            }
-        });
-
+        activitylogin_EnterappButton= findViewById(R.id.activitylogin_enterapp_button);
         forgotDailog =new Dialog(this);
         forgotCheckDialog = new Dialog(this);
 
@@ -105,7 +101,6 @@ public class LoginActivity extends AppCompatActivity {
                     forgotDailog.dismiss();
 
                     showdialogCheck();
-
                 } else {
                     Toast.makeText(getApplicationContext(),"Enter valid email address!",Toast.LENGTH_LONG).show();
                 }
@@ -122,17 +117,6 @@ public class LoginActivity extends AppCompatActivity {
         forgotpassCheckCardview = forgotCheckDialog.findViewById(R.id.forgotpass_checkcardview);
         forgotpassCheckImageButton = forgotCheckDialog.findViewById(R.id.forgotpass_checkimagebutton);
 
-        animateCheckImageview = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
-        forgotpassCheckImageView.startAnimation(animateCheckImageview);
-        forgotpassCheckImageView.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                forgotpassCheckImageView.setVisibility(View.VISIBLE);
-                forgotpassCheckImageView.animate().scaleX(1.5f).scaleY(1.5f).setDuration(2000);
-                forgotpassCheckImageView.animate().translationXBy(500).translationYBy(-300).setDuration(2000);
-            }
-        },1500);
-
         forgotpassCheckButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -147,4 +131,50 @@ public class LoginActivity extends AppCompatActivity {
         });
         forgotCheckDialog.show();
     }
+
+
+    public void register(View view){
+
+        Intent intent= new Intent(getApplicationContext(), SignUpActivity.class);
+        startActivity(intent);
+
+    }
+
+    public void enterApp(View view){
+
+        activitylogin_EmailEdittext=findViewById(R.id.activitylogin_email_edittext);
+        activitylogin_PasswordEdittext=findViewById(R.id.activitylogin_password_edittext);
+
+        if(!activitylogin_EmailEdittext.getText().toString().isEmpty() && !activitylogin_PasswordEdittext.getText().toString().isEmpty()){
+
+            mAuth.signInWithEmailAndPassword(activitylogin_EmailEdittext.getText().toString(),activitylogin_PasswordEdittext.getText().toString())
+                    .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+
+                            //edittext dolu mu bos mu kontrol et.
+
+                            if (task.isSuccessful()){
+
+                                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                                startActivity(intent);
+
+                            }else{
+
+                                //giriş yapılamadı toast
+                                Toast.makeText(getApplicationContext(),"Check your information",Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+
+        }else{
+
+            Toast.makeText(getApplicationContext(),"Please fill necessary information!",Toast.LENGTH_LONG).show();
+        }
+
+
+
+
+    }
+
 }
