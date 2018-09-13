@@ -9,6 +9,8 @@ import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
@@ -27,8 +29,8 @@ public class LoginActivity extends AppCompatActivity {
     ImageView forgotpasssendImageView, forgotpassCheckImageView;
     EditText forgotpasssendEdittext;
     Button forgotpasssendButton, forgotpassCheckButton;
-
-
+    Animation animateCheckImageview;
+    
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -103,6 +105,7 @@ public class LoginActivity extends AppCompatActivity {
                     forgotDailog.dismiss();
 
                     showdialogCheck();
+
                 } else {
                     Toast.makeText(getApplicationContext(),"Enter valid email address!",Toast.LENGTH_LONG).show();
                 }
@@ -118,6 +121,17 @@ public class LoginActivity extends AppCompatActivity {
         forgotpassCheckImageView = forgotCheckDialog.findViewById(R.id.forgotpass_checkimageview);
         forgotpassCheckCardview = forgotCheckDialog.findViewById(R.id.forgotpass_checkcardview);
         forgotpassCheckImageButton = forgotCheckDialog.findViewById(R.id.forgotpass_checkimagebutton);
+
+        animateCheckImageview = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fade_in);
+        forgotpassCheckImageView.startAnimation(animateCheckImageview);
+        forgotpassCheckImageView.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                forgotpassCheckImageView.setVisibility(View.VISIBLE);
+                forgotpassCheckImageView.animate().scaleX(1.5f).scaleY(1.5f).setDuration(2000);
+                forgotpassCheckImageView.animate().translationXBy(500).translationYBy(-300).setDuration(2000);
+            }
+        },1500);
 
         forgotpassCheckButton.setOnClickListener(new View.OnClickListener() {
             @Override
