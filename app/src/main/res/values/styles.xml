@@ -4,14 +4,13 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!-- Customize your theme here. -->
         <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorPrimaryDark">#FF8F00</item>
         <item name="colorAccent">#FFA726</item>
 
     </style>
 
     <style name="MyEdittext" parent="TextAppearance.AppCompat">
         <item name="android:textColorHint">#FFA726</item>
-
         <item name="android:colorAccent">#FFA726</item>
         <item name="android:colorControlNormal">#FFA726</item>
         <item name="android:colorControlActivated">#FFA726</item>

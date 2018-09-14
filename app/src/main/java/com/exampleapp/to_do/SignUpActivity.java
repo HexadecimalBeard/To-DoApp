@@ -19,7 +19,6 @@ public class SignUpActivity extends AppCompatActivity {
 
     EditText signupUsernameEdittext,signupEmailEdittext,signupPasswordEdittext;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +26,6 @@ public class SignUpActivity extends AppCompatActivity {
 
         mAuth=FirebaseAuth.getInstance();
     }
-
     public void register(View view){
 
         //signupUsernameEdittext şimdilik alınmadı
@@ -42,7 +40,6 @@ public class SignUpActivity extends AppCompatActivity {
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
-
                             if(task.isSuccessful()){
 
                                 Intent intent=new Intent(getApplicationContext(),MainActivity.class);
@@ -51,27 +48,17 @@ public class SignUpActivity extends AppCompatActivity {
                             }else{
 
                                 Toast.makeText(getApplicationContext(),"Check your information",Toast.LENGTH_LONG).show();
-
                             }
-
                         }
                     });
-
          }else{
 
             Toast.makeText(getApplicationContext(),"Please fill necessary information!",Toast.LENGTH_LONG).show();
-
         }
-
-
-
-
     }
-
     public void backlogin(View view){
 
         Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
         startActivity(intent);
     }
-
 }

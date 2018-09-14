@@ -27,4 +27,11 @@
     <string name="forgotpass_send">SEND</string>
     <string name="forgotpass_notifytextview">Enter your email address to reset your password.</string>
     <string name="forgotpass_emailhint">Email</string>
+    <string name="optionsmenu_items1">Night mode</string>
+    <string name="optionsmenu_items2">Language</string>
+    <string name="optionsmenu_items3">About</string>
+    <string name="optionsmenu_items4">Log out</string>
+    <string name="fab_calendar">Calendar</string>
+    <string name="fab_todo">To-Do</string>
+    <string name="fab_note">Note</string>
 </resources>

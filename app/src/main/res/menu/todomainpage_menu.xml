@@ -3,46 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <item android:id="@+id/action_more"
-        android:icon="@drawable/activitytodo_addicon"
+        android:icon="@drawable/optionsmenuicon"
         android:title=""
-        app:showAsAction="always"
-        >
-
+        app:showAsAction="always">
         <menu>
 
-
             <item android:id="@+id/nightmode"
-                android:title="Night Mode"
-                android:icon="@drawable/activitytodo_addicon"
-                app:showAsAction="ifRoom"
-                >
+                android:title="@string/optionsmenu_items1"
+                android:icon="@mipmap/optionsmenumoon"
+                app:showAsAction="ifRoom">
             </item>
 
             <item android:id="@+id/language"
-                android:title="Language"
-                android:icon="@drawable/activitytodo_addicon"
+                android:title="@string/optionsmenu_items2"
+                android:icon="@mipmap/optionsmenulanguage"
                 app:showAsAction="ifRoom">
             </item>
 
             <item android:id="@+id/about"
-                android:title="About"
-                android:icon="@drawable/activitytodo_addicon"
+                android:title="@string/optionsmenu_items3"
+                android:icon="@mipmap/optionsmenuinfo"
                 app:showAsAction="ifRoom">
             </item>
 
             <item android:id="@+id/logout"
-                android:title="Log out"
-                android:icon="@drawable/activitytodo_addicon"
+                android:title="@string/optionsmenu_items4"
+                android:icon="@mipmap/optionsmenulogout"
                 app:showAsAction="ifRoom">
             </item>
 
-
-
-
-
-
         </menu>
-
 
     </item>
 
