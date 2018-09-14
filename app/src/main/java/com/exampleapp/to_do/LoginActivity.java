@@ -70,7 +70,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if(firebaseAuth.getCurrentUser() !=null){
-                    startActivity(new Intent(LoginActivity.this,MainActivity.class));
+                    startActivity(new Intent(LoginActivity.this,TodoMainPage.class));
                 }
             }
         };
@@ -199,7 +199,7 @@ public class LoginActivity extends AppCompatActivity {
 
                             if (task.isSuccessful()){
 
-                                Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+                                Intent intent=new Intent(getApplicationContext(),TodoMainPage.class);
                                 startActivity(intent);
 
                             }else{
