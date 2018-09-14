@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.TextView;
+import android.support.v7.widget.Toolbar;
 
 public class TodoMainPage extends AppCompatActivity {
 
@@ -21,6 +24,9 @@ public class TodoMainPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_todo_main_page);
 
+        Toolbar myToolbar=(Toolbar)findViewById(R.id.todomainpage_toolbar);
+        setSupportActionBar(myToolbar);
+
         fab_plus=findViewById(R.id.fab_plus);
         fab_calendar=findViewById(R.id.fab_calendar);
         fab_makenote=findViewById(R.id.fab_makenote);
@@ -33,6 +39,8 @@ public class TodoMainPage extends AppCompatActivity {
         FabRClockwise=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
         FabRantiClockwise=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
     }
+
+
 
     public void fabOnClick(View view){
 
@@ -85,5 +93,24 @@ public class TodoMainPage extends AppCompatActivity {
         //calendar sayfasına giriş
 
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+
+        getMenuInflater().inflate(R.menu.todomainpage_menu,menu);
+        return super.onCreateOptionsMenu(menu);
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        if (item.getItemId()==R.id.nightmode){
+
+            Intent intent=new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(intent);
+        }
+
+        return super.onOptionsItemSelected(item);
     }
 }

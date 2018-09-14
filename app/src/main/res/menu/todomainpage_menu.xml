@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item android:id="@+id/action_more"
+        android:icon="@drawable/activitytodo_addicon"
+        android:title=""
+        app:showAsAction="always"
+        >
+
+        <menu>
+
+
+            <item android:id="@+id/nightmode"
+                android:title="Night Mode"
+                android:icon="@drawable/activitytodo_addicon"
+                app:showAsAction="ifRoom"
+                >
+            </item>
+
+            <item android:id="@+id/language"
+                android:title="Language"
+                android:icon="@drawable/activitytodo_addicon"
+                app:showAsAction="ifRoom">
+            </item>
+
+            <item android:id="@+id/about"
+                android:title="About"
+                android:icon="@drawable/activitytodo_addicon"
+                app:showAsAction="ifRoom">
+            </item>
+
+            <item android:id="@+id/logout"
+                android:title="Log out"
+                android:icon="@drawable/activitytodo_addicon"
+                app:showAsAction="ifRoom">
+            </item>
+
+
+
+
+
+
+        </menu>
+
+
+    </item>
+
+
+
+</menu>
