@@ -9,8 +9,13 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.ExpandableListView;
 import android.widget.TextView;
 import android.support.v7.widget.Toolbar;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
 
 public class TodoMainPage extends AppCompatActivity {
 
@@ -18,6 +23,11 @@ public class TodoMainPage extends AppCompatActivity {
     Animation FabOpen,FabClose,FabRClockwise,FabRantiClockwise;
     TextView todoFabText,noteFabText,calendarFabText;
     boolean isOpen=false;
+
+    private ExpandableListView expandableListView;
+    private ExpandableListAdapter expandableListAdapter;
+    private List<String> listDataHeader;
+    private HashMap<String,List<String>> listHash;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,8 +48,32 @@ public class TodoMainPage extends AppCompatActivity {
         FabClose=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
         FabRClockwise=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
         FabRantiClockwise=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
+
+
+        expandableListView=(ExpandableListView)findViewById(R.id.activitytodo_explistview);
+        initData();
+        expandableListAdapter=new ExpandableListAdapter(this,listDataHeader,listHash);
+        expandableListView.setAdapter(expandableListAdapter);
+
     }
 
+    private void initData() {
+        listDataHeader=new ArrayList<>();
+        listHash=new HashMap<>();
+
+        listDataHeader.add("To-Do");
+        listDataHeader.add("Notes");
+
+        List<String> todo=new ArrayList<>();
+        todo.add("This is Expandable ListView");
+
+        List<String> notes=new ArrayList<>();
+        notes.add("Expandable Listview");
+
+        listHash.put(listDataHeader.get(0),todo);
+        listHash.put(listDataHeader.get(1),notes);
+
+    }
 
 
     public void fabOnClick(View view){

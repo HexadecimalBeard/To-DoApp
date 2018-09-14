@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".TodoMainPage">
+    tools:context=".TodoMainPage"
+    tools:layout_editor_absoluteY="25dp">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/todomainpage_toolbar"
@@ -15,15 +16,13 @@
         android:theme="?attr/actionBarTheme"
         app:titleTextColor="#FFFFFF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <android.support.design.widget.CoordinatorLayout
         android:id="@+id/coordinatorLayout"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|end"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="8dp"
         android:layout_marginTop="8dp"
@@ -35,7 +34,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/activitytodo_explistview"
         app:layout_constraintVertical_bias="1.0">
 
         <LinearLayout
@@ -49,22 +48,22 @@
                 android:id="@+id/calendarFabTextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
                 android:padding="8dp"
                 android:text="@string/fab_calendar"
-                android:textSize="20sp"
-                android:visibility="invisible"
                 android:textColor="#3C3C3C"
-                android:fontFamily="@font/roboto_medium"/>
+                android:textSize="20sp"
+                android:visibility="invisible" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_calendar"
-                android:layout_width="121dp"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginEnd="3dp"
                 android:elevation="6dp"
                 android:onClick="calendarLogin"
                 android:visibility="invisible"
-                app:fabSize="mini"
+                app:fabSize="normal"
                 app:pressedTranslationZ="12dp"
                 app:srcCompat="@mipmap/fabcalendar" />
 
@@ -83,12 +82,12 @@
                 android:id="@+id/noteFabTextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
                 android:padding="8dp"
                 android:text="@string/fab_note"
-                android:textSize="20sp"
-                android:visibility="invisible"
                 android:textColor="#3C3C3C"
-                android:fontFamily="@font/roboto_medium"/>
+                android:textSize="20sp"
+                android:visibility="invisible" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_makenote"
@@ -98,7 +97,7 @@
                 android:elevation="6dp"
                 android:onClick="noteLogin"
                 android:visibility="invisible"
-                app:fabSize="mini"
+                app:fabSize="normal"
                 app:pressedTranslationZ="12dp"
                 app:srcCompat="@mipmap/fabtext" />
 
@@ -117,12 +116,12 @@
                 android:id="@+id/todoFabTextview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="@font/roboto_medium"
                 android:padding="8dp"
                 android:text="@string/fab_todo"
-                android:textSize="20sp"
-                android:visibility="invisible"
                 android:textColor="#3C3C3C"
-                android:fontFamily="@font/roboto_medium"/>
+                android:textSize="20sp"
+                android:visibility="invisible" />
 
             <android.support.design.widget.FloatingActionButton
                 android:id="@+id/fab_todo"
@@ -132,11 +131,12 @@
                 android:elevation="6dp"
                 android:onClick="todoLogin"
                 android:visibility="invisible"
-                app:fabSize="mini"
+                app:fabSize="normal"
                 app:pressedTranslationZ="12dp"
                 app:srcCompat="@mipmap/fabtodo" />
 
         </LinearLayout>
+
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/fab_plus"
@@ -150,6 +150,26 @@
             app:pressedTranslationZ="12dp"
             app:srcCompat="@drawable/activitytodo_addicon" />
 
+
     </android.support.design.widget.CoordinatorLayout>
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.83" />
+
+    <ExpandableListView
+        android:id="@+id/activitytodo_explistview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todomainpage_toolbar">
+
+    </ExpandableListView>
+
 
 </android.support.constraint.ConstraintLayout>
