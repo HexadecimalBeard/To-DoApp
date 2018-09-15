@@ -7,6 +7,17 @@
     tools:context=".TodoMainPage"
     tools:layout_editor_absoluteY="25dp">
 
+    <ExpandableListView
+        android:id="@+id/activitytodo_explistview"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline2"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/todomainpage_toolbar">
+
+    </ExpandableListView>
+
     <android.support.v7.widget.Toolbar
         android:id="@+id/todomainpage_toolbar"
         android:layout_width="0dp"
@@ -159,17 +170,6 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.83" />
-
-    <ExpandableListView
-        android:id="@+id/activitytodo_explistview"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/todomainpage_toolbar">
-
-    </ExpandableListView>
 
 
 </android.support.constraint.ConstraintLayout>
