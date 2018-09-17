@@ -127,13 +127,13 @@
         android:layout_marginTop="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/createtodo_verticalguideline"
-        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toEndOf="@+id/createtodo_reminderbutton"
         app:layout_constraintTop_toTopOf="@+id/createtodo_horizontalguideline"
         app:layout_constraintVertical_bias="0.076" />
 
     <TextView
-        android:id="@+id/createtodo_remaindate"
+        android:id="@+id/createtodo_createtimetextview"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
@@ -142,7 +142,7 @@
         android:layout_marginTop="4dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/createtodo_verticalguideline"
-        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintHorizontal_bias="0.15"
         app:layout_constraintStart_toEndOf="@+id/createtodo_reminderbutton"
         app:layout_constraintTop_toTopOf="@+id/createtodo_horizontalguideline"
         app:layout_constraintVertical_bias="0.157" />
