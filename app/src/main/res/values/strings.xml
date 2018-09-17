@@ -34,4 +34,5 @@
     <string name="fab_calendar">Calendar</string>
     <string name="fab_todo">To-Do</string>
     <string name="fab_note">Note</string>
+    <string name="createtodo_edittexthint">Go to gym!!!</string>
 </resources>

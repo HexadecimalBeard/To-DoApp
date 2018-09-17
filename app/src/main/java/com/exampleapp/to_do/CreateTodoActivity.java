@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -19,8 +20,8 @@ import java.util.UUID;
 
 public class CreateTodoActivity extends AppCompatActivity {
 
-    EditText et;
-    Button bt;
+    EditText createtodo_writebutton;
+    ImageButton createtodo_donebutton, createdtodo_previouspage;
     public List<String> listDataHeader1;
     public HashMap<String,List<String>> listHash1;
 
@@ -37,16 +38,23 @@ public class CreateTodoActivity extends AppCompatActivity {
         database=FirebaseDatabase.getInstance();
         databaseReference=database.getReference();
 
-        bt=findViewById(R.id.button);
-        et=findViewById(R.id.editText);
+        createtodo_donebutton=findViewById(R.id.createtodo_donebutton);
+        createtodo_writebutton=findViewById(R.id.createtodo_writebutton);
+        createdtodo_previouspage=findViewById(R.id.gotopreviouspage_button);
 
-
+        createdtodo_previouspage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getApplicationContext(), TodoMainPage.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
     public void sendTodo(View view){
 
-        String text=et.getText().toString();
+        String text=createtodo_writebutton.getText().toString();
 
         UUID uuıd=UUID.randomUUID();
         String uuidString=uuıd.toString();
@@ -59,7 +67,7 @@ public class CreateTodoActivity extends AppCompatActivity {
         databaseReference.child(userid).child(uuidString).child("Useremail").setValue(useremail);
         databaseReference.child(userid).child(uuidString).child("Usersendtime").setValue(ServerValue.TIMESTAMP);
 
-        et.setText("");
+        createtodo_writebutton.setText("");
 
         Intent intent=new Intent(getApplicationContext(),TodoMainPage.class);
         startActivity(intent);

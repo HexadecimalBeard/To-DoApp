@@ -33,8 +33,8 @@ public class TodoMainPage extends AppCompatActivity {
 
     FloatingActionButton fab_plus,fab_calendar,fab_makenote,fab_todo;
     Animation FabOpen,FabClose,FabRClockwise,FabRantiClockwise;
-    TextView todoFabText,noteFabText,calendarFabText;
-    boolean isOpen=false;
+    TextView todoFabText,noteFabText,calendarFabText, todomainpage_textviewexpend;
+    boolean isOpen=false, isTextViewClicked = false;
 
     public ExpandableListView expandableListView;
     public ExpandableListAdapter expandableListAdapter;
@@ -75,11 +75,28 @@ public class TodoMainPage extends AppCompatActivity {
         expandableListAdapter=new ExpandableListAdapter(this,listDataHeader,listHash);
         expandableListView.setAdapter(expandableListAdapter);
 
+/*
+
+        todomainpage_textviewexpend = findViewById(R.id.lstgroup_Item);
+
+        todomainpage_textviewexpend.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(isTextViewClicked){
+
+                    todomainpage_textviewexpend.setMaxLines(1);
+                    isTextViewClicked = false;
+
+                }else {
+
+                    todomainpage_textviewexpend.setMaxLines(Integer.MAX_VALUE);
+                    isTextViewClicked = true;
+
+                }
+            }
+        });
+*/
     }
-
-
-
-
 
     public void fabOnClick(View view){
 
@@ -96,8 +113,6 @@ public class TodoMainPage extends AppCompatActivity {
             fab_todo.setClickable(false);
             fab_makenote.setClickable(false);
             isOpen=false;
-
-
         }else{
 
             fab_calendar.startAnimation(FabOpen);
@@ -111,12 +126,10 @@ public class TodoMainPage extends AppCompatActivity {
             fab_todo.setClickable(true);
             fab_makenote.setClickable(true);
             isOpen=true;
-
         }
     }
 
     public void todoLogin(View view){
-
 
         Intent intent=new Intent(getApplicationContext(),CreateTodoActivity.class);
         startActivity(intent);
@@ -155,8 +168,6 @@ public class TodoMainPage extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-
     public void getData(){
 
         listDataHeader=new ArrayList<>();
@@ -168,7 +179,6 @@ public class TodoMainPage extends AppCompatActivity {
 
         FirebaseUser user=mAuth.getCurrentUser();
         String userid=user.getUid().toString();
-
 
         DatabaseReference newReference= database.getReference(userid);
 
@@ -182,27 +192,20 @@ public class TodoMainPage extends AppCompatActivity {
 
                 for (DataSnapshot ds:dataSnapshot.getChildren()){
 
-
                     HashMap<String,String> hashMap=(HashMap<String, String>)ds.getValue();
                     String todo=hashMap.get("Todo");
 
                     todolist.add(todo);
 
                     expandableListView.deferNotifyDataSetChanged();
-
                 }
-
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
                 Toast.makeText(getApplicationContext(),databaseError.getMessage().toString(),Toast.LENGTH_LONG).show();
             }
         });
-
         listHash.put(listDataHeader.get(0),todolist);
-
     }
-
 }

@@ -7,28 +7,143 @@
     tools:context=".CreateTodoActivity"
     tools:layout_editor_absoluteY="25dp">
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/todomainpage_toolbar"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="222dp"
-        android:onClick="sendTodo"
-        android:text="Button"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:background="#FFA726"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:titleTextColor="#FFFFFF" />
+
+    <ImageButton
+        android:id="@+id/gotopreviouspage_button"
+        android:layout_width="25dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@mipmap/previouspage_arrowbutton"
+        app:layout_constraintBottom_toBottomOf="@+id/todomainpage_toolbar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.06"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.8" />
 
     <EditText
-        android:id="@+id/editText"
-        android:layout_width="235dp"
+        android:id="@+id/createtodo_writebutton"
+        android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_marginBottom="186dp"
-        android:layout_marginTop="141dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="31dp"
+        android:layout_marginTop="24dp"
+        android:background="@android:color/transparent"
         android:ems="10"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toTopOf="@+id/button"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="#3C3C3C"
+        android:gravity="start"
+        android:hint="@string/createtodo_edittexthint"
+        android:inputType="textMultiLine"
+        app:layout_constraintBottom_toTopOf="@+id/createtodo_horizontalguideline"
+        app:layout_constraintEnd_toStartOf="@+id/createtodo_verticalguideline"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/todomainpage_toolbar"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageButton
+        android:id="@+id/createtodo_donebutton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="18dp"
+        android:background="@mipmap/createtodo_doneicon"
+        android:onClick="sendTodo"
+        app:layout_constraintBottom_toTopOf="@+id/createtodo_horizontalguideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/createtodo_verticalguideline"
+        app:layout_constraintTop_toBottomOf="@+id/todomainpage_toolbar"
+        app:layout_constraintVertical_bias="0.050000012" />
+
+    <ImageButton
+        android:id="@+id/createtodo_reminderbutton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="316dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@mipmap/createtodo_remindericon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/createtodo_verticalguideline"
+        app:layout_constraintHorizontal_bias="0.08"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/createtodo_horizontalguideline"
+        app:layout_constraintVertical_bias="0.7" />
+
+    <ImageButton
+        android:id="@+id/createtodo_addiconbutton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@mipmap/createtodo_addicon"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/createtodo_verticalguideline"
+        app:layout_constraintTop_toTopOf="@+id/createtodo_horizontalguideline"
+        app:layout_constraintVertical_bias="0.083" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/createtodo_verticalguideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.8004866" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/createtodo_horizontalguideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.37" />
+
+    <TextView
+        android:id="@+id/createtodo_createdatetextview"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/createtodo_verticalguideline"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toEndOf="@+id/createtodo_reminderbutton"
+        app:layout_constraintTop_toTopOf="@+id/createtodo_horizontalguideline"
+        app:layout_constraintVertical_bias="0.076" />
+
+    <TextView
+        android:id="@+id/createtodo_remaindate"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/createtodo_verticalguideline"
+        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintStart_toEndOf="@+id/createtodo_reminderbutton"
+        app:layout_constraintTop_toTopOf="@+id/createtodo_horizontalguideline"
+        app:layout_constraintVertical_bias="0.157" />
 </android.support.constraint.ConstraintLayout>
