@@ -20,6 +20,8 @@ import com.google.firebase.database.ServerValue;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
@@ -38,6 +40,7 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
 
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +56,11 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
         reminderButton=findViewById(R.id.createtodo_reminderbutton);
         dateSet=findViewById(R.id.createtodo_createdatetextview);
         timeSet=findViewById(R.id.createtodo_createtimetextview);
+
+
+
+
+
 
         createdtodo_previouspage.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -96,47 +104,72 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
 
     }
 
-    @RequiresApi(api = Build.VERSION_CODES.N)
-    private void datedialog(){
-
-    }
 
     public void sendTodo(View view){
 
-        String text=createtodo_writebutton.getText().toString();
+        if(!createtodo_writebutton.getText().toString().isEmpty() && !dateSet.getText().toString().isEmpty() && !timeSet.getText().toString().isEmpty() ) {
 
-        UUID uuıd=UUID.randomUUID();
-        String uuidString=uuıd.toString();
+            String text = createtodo_writebutton.getText().toString();
 
-        FirebaseUser user=mAuth.getCurrentUser();
-        String useremail=user.getEmail().toString();
-        String userid=user.getUid().toString();
+            UUID uuıd = UUID.randomUUID();
+            String uuidString = uuıd.toString();
 
-        databaseReference.child(userid).child(uuidString).child("Todo").setValue(text);
-        databaseReference.child(userid).child(uuidString).child("Useremail").setValue(useremail);
-        databaseReference.child(userid).child(uuidString).child("Usersendtime").setValue(ServerValue.TIMESTAMP);
+            FirebaseUser user = mAuth.getCurrentUser();
+            String useremail = user.getEmail().toString();
+            String userid = user.getUid().toString();
 
-        createtodo_writebutton.setText("");
+            databaseReference.child(userid).child(uuidString).child("Todo").setValue(text);
+            databaseReference.child(userid).child(uuidString).child("Useremail").setValue(useremail);
+            databaseReference.child(userid).child(uuidString).child("Usersendtime").setValue(ServerValue.TIMESTAMP);
 
-        Intent intent=new Intent(getApplicationContext(),TodoMainPage.class);
-        startActivity(intent);
 
+            databaseReference.child(userid).child(uuidString).child("Date").setValue(dateSet.getText().toString());
+            databaseReference.child(userid).child(uuidString).child("Time").setValue(timeSet.getText().toString());
+
+            createtodo_writebutton.setText("");
+
+            Intent intent = new Intent(getApplicationContext(), TodoMainPage.class);
+            startActivity(intent);
+
+        }else {
+
+            Toast.makeText(getApplicationContext(),"Please enter date,time and todo",Toast.LENGTH_LONG).show();
+        }
 
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     @Override
     public void onDateSet(DatePickerDialog view, int year, int monthOfYear, int dayOfMonth) {
 
-        Toast.makeText(getApplicationContext(),"You picked the following date: "+dayOfMonth+"/"+(monthOfYear+1)+"/"+year,Toast.LENGTH_LONG).show();
         String date=dayOfMonth+"/"+(monthOfYear+1)+"/"+year;
-        dateSet.setText(date);
+
+        DateFormat dfDay=new SimpleDateFormat("dd");
+        String currentday1=dfDay.format(Calendar.getInstance().getTime());
+        int currentday=Integer.valueOf(currentday1);
+
+        DateFormat dfMonth=new SimpleDateFormat("MM");
+        String currentmonth1=dfMonth.format(Calendar.getInstance().getTime());
+        int currentmonth=Integer.valueOf(currentmonth1);
+
+        DateFormat dfYear=new SimpleDateFormat("yyyy");
+        String currentYear1=dfYear.format(Calendar.getInstance().getTime());
+        int currentYear=Integer.valueOf(currentYear1);
+
+            if(year< currentYear || monthOfYear<currentmonth || dayOfMonth<currentday){
+
+                dateSet.setText("");
+                Toast.makeText(getApplicationContext(),"Please enter a current time",Toast.LENGTH_LONG).show();
+            }else{
+                dateSet.setText(date);
+            }
+
     }
 
     @Override
     public void onTimeSet(TimePickerDialog view, int hourOfDay, int minute, int second) {
 
-        Toast.makeText(getApplicationContext(),"You picked the following time: "+hourOfDay+"h"+minute,Toast.LENGTH_LONG).show();
         String time=hourOfDay+":"+minute;
         timeSet.setText(time);
     }
@@ -145,6 +178,7 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
     public void onPointerCaptureChanged(boolean hasCapture) {
 
     }
+
 }
 
 //check butonuna bastığında text kısmında veri var mı yok mu kontrol edilecek
