@@ -22,8 +22,6 @@ import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.HashMap;
-import java.util.List;
 import java.util.UUID;
 
 public class CreateTodoActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener,TimePickerDialog.OnTimeSetListener{
@@ -31,9 +29,6 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
     EditText createtodo_writebutton;
     ImageButton createtodo_donebutton, createdtodo_previouspage,reminderButton;
     TextView dateSet,timeSet;
-    public List<String> listDataHeader1;
-    public HashMap<String,List<String>> listHash1;
-
     FirebaseAuth mAuth;
     FirebaseDatabase database;
     DatabaseReference databaseReference;
@@ -50,7 +45,7 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
         database=FirebaseDatabase.getInstance();
         databaseReference=database.getReference();
 
-        createtodo_donebutton=findViewById(R.id.createtodo_donebutton);
+        createtodo_donebutton=findViewById(R.id.activitycreatenotes_doneButton);
         createtodo_writebutton=findViewById(R.id.createtodo_writebutton);
         createdtodo_previouspage=findViewById(R.id.gotopreviouspage_button);
         reminderButton=findViewById(R.id.createtodo_reminderbutton);
@@ -107,7 +102,7 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
 
     public void sendTodo(View view){
 
-        if(!createtodo_writebutton.getText().toString().isEmpty() && !dateSet.getText().toString().isEmpty() && !timeSet.getText().toString().isEmpty() ) {
+
 
             String text = createtodo_writebutton.getText().toString();
 
@@ -123,7 +118,9 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
             databaseReference.child(userid).child(uuidString).child("Usersendtime").setValue(ServerValue.TIMESTAMP);
 
 
-            databaseReference.child(userid).child(uuidString).child("Date").setValue(dateSet.getText().toString());
+
+
+           // databaseReference.child(userid).child(uuidString).child("Date").setValue(dateSet.getText().toString());
             databaseReference.child(userid).child(uuidString).child("Time").setValue(timeSet.getText().toString());
 
             createtodo_writebutton.setText("");
@@ -131,10 +128,6 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
             Intent intent = new Intent(getApplicationContext(), TodoMainPage.class);
             startActivity(intent);
 
-        }else {
-
-            Toast.makeText(getApplicationContext(),"Please enter date,time and todo",Toast.LENGTH_LONG).show();
-        }
 
     }
 

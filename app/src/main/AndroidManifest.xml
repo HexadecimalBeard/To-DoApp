@@ -37,7 +37,8 @@
             android:resource="@array/preloaded_fonts" />
 
         <activity android:name=".TodoMainPage" />
-        <activity android:name=".CreateTodoActivity"></activity>
+        <activity android:name=".CreateTodoActivity" />
+        <activity android:name=".CreateNotesActivity"></activity>
     </application>
 
 </manifest>

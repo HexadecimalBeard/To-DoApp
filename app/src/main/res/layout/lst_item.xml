@@ -7,47 +7,53 @@
     android:background="#FFFFFF"
     android:orientation="horizontal"
     android:padding="8dp"
-    android:paddingTop="50dp">
+    android:paddingTop="50dp"
+    tools:layout_editor_absoluteY="25dp">
 
-
-    <android.support.v7.widget.AppCompatCheckBox
-        android:id="@+id/lstgroup_ItemCheckBox"
-        android:layout_width="42dp"
-        android:layout_height="32dp"
-        android:layout_marginBottom="4dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginTop="4dp"
-        android:padding="5dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/lstgroup_Item"
+        android:id="@+id/lstitem_todoremainderText"
+        android:layout_width="0dp"
+        android:layout_height="17dp"
+        android:layout_marginEnd="11dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/lstitem_todoIcon"
+        app:layout_constraintStart_toEndOf="@+id/lstitem_todoText"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <android.support.v7.widget.AppCompatCheckBox
+        android:id="@+id/lstitem_checkBox"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginEnd="2dp"
+        android:layout_marginStart="36dp"
+        android:padding="5dp"
+        app:layout_constraintBaseline_toBaselineOf="@+id/lstitem_todoText"
+        app:layout_constraintEnd_toStartOf="@+id/lstitem_todoText"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/lstitem_todoText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginStart="2dp"
-        android:layout_marginTop="4dp"
+        android:layout_marginEnd="34dp"
         android:padding="5dp"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/imageButton"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/lstgroup_ItemCheckBox"
+        app:layout_constraintEnd_toStartOf="@+id/lstitem_todoremainderText"
+        app:layout_constraintStart_toEndOf="@+id/lstitem_checkBox"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="24dp"
+    <ImageView
+        android:id="@+id/lstitem_todoIcon"
+        android:layout_width="0dp"
         android:layout_height="24dp"
-        android:layout_marginBottom="8dp"
         android:layout_marginEnd="4dp"
-        android:layout_marginTop="8dp"
         android:background="@mipmap/optionsmenuinfo"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/lstitem_todoremainderText"
         app:layout_constraintTop_toTopOf="parent" />
 
 </android.support.constraint.ConstraintLayout>

@@ -2,8 +2,9 @@ package com.exampleapp.to_do;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
@@ -11,22 +12,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
-import android.widget.ExpandableListView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
-import com.google.firebase.database.ValueEventListener;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
 
 
 public class TodoMainPage extends AppCompatActivity {
@@ -36,10 +26,9 @@ public class TodoMainPage extends AppCompatActivity {
     TextView todoFabText,noteFabText,calendarFabText, todomainpage_textviewexpend;
     boolean isOpen=false, isTextViewClicked = false;
 
-    public ExpandableListView expandableListView;
-    public ExpandableListAdapter expandableListAdapter;
-    public List<String> listDataHeader;
-    public HashMap<String,List<String>> listHash;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+    private ViewPagerAdapter adapter;
 
     FirebaseAuth mAuth;
     FirebaseDatabase database;
@@ -51,7 +40,22 @@ public class TodoMainPage extends AppCompatActivity {
         setContentView(R.layout.activity_todo_main_page);
 
         Toolbar myToolbar=(Toolbar)findViewById(R.id.todomainpage_toolbar);
+        myToolbar.setElevation(0);
         setSupportActionBar(myToolbar);
+
+
+        tabLayout=findViewById(R.id.activitytodo_tabLayout);
+        viewPager=findViewById(R.id.activitytodo_viewPager);
+        adapter=new ViewPagerAdapter(getSupportFragmentManager());
+
+
+        adapter.AddFragment(new FragmentTodo(),"Todo");
+        adapter.AddFragment(new FragmentNotes(),"Notes");
+
+        viewPager.setAdapter(adapter);
+        tabLayout.setupWithViewPager(viewPager);
+
+
 
         mAuth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
@@ -68,12 +72,6 @@ public class TodoMainPage extends AppCompatActivity {
         FabClose=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
         FabRClockwise=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
         FabRantiClockwise=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
-
-
-        expandableListView=(ExpandableListView)findViewById(R.id.activitytodo_explistview);
-        getData();
-        expandableListAdapter=new ExpandableListAdapter(this,listDataHeader,listHash);
-        expandableListView.setAdapter(expandableListAdapter);
 
 /*
 
@@ -137,6 +135,8 @@ public class TodoMainPage extends AppCompatActivity {
 
     public void noteLogin(View view){
 
+        Intent intent=new Intent(getApplicationContext(),CreateNotesActivity.class);
+        startActivity(intent);
         //note yazmaya giriş
     }
 
@@ -168,7 +168,7 @@ public class TodoMainPage extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void getData(){
+  /*  public void getData(){
 
         listDataHeader=new ArrayList<>();
         listHash=new HashMap<>();
@@ -195,6 +195,8 @@ public class TodoMainPage extends AppCompatActivity {
                     HashMap<String,String> hashMap=(HashMap<String, String>)ds.getValue();
                     String todo=hashMap.get("Todo");
 
+                    //bu kısımda birden fazla ds get Value alınacak.
+
                     todolist.add(todo);
 
                     expandableListView.deferNotifyDataSetChanged();
@@ -208,4 +210,5 @@ public class TodoMainPage extends AppCompatActivity {
         });
         listHash.put(listDataHeader.get(0),todolist);
     }
+    */
 }
