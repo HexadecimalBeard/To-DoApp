@@ -24,7 +24,7 @@ public class TodoMainPage extends AppCompatActivity {
     FloatingActionButton fab_plus,fab_calendar,fab_makenote,fab_todo;
     Animation FabOpen,FabClose,FabRClockwise,FabRantiClockwise;
     TextView todoFabText,noteFabText,calendarFabText, todomainpage_textviewexpend;
-    boolean isOpen=false, isTextViewClicked = false;
+    boolean isOpen=false;
 
     private TabLayout tabLayout;
     private ViewPager viewPager;
@@ -163,6 +163,12 @@ public class TodoMainPage extends AppCompatActivity {
 
             Intent intent=new Intent(getApplicationContext(),MainActivity.class);
             startActivity(intent);
+        }else if(item.getItemId()==R.id.logout){
+
+            mAuth.signOut();
+            Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
+            startActivity(intent);
+
         }
 
         return super.onOptionsItemSelected(item);

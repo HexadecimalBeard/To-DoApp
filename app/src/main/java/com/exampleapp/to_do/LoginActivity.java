@@ -106,6 +106,9 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
     public void showdialog(){
 
         forgotDailog.setContentView(R.layout.forgotpass_enteremail);
