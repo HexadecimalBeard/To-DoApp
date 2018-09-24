@@ -54,6 +54,8 @@ public class FragmentNotes extends Fragment {
         notesRecyclerViewAdapter=new NotesRecyclerViewAdapter(getContext(),lstNote);
         mrecyclerviewnote.setLayoutManager(new LinearLayoutManager(getActivity()));
         mrecyclerviewnote.setAdapter(notesRecyclerViewAdapter);
+
+
         return v;
     }
 
@@ -67,7 +69,6 @@ public class FragmentNotes extends Fragment {
         databaseReference=firebaseDatabase.getReference();
 
         getData();
-
     }
 
     public void getData(){
@@ -93,10 +94,11 @@ public class FragmentNotes extends Fragment {
                     HashMap<String,String> hashMap=(HashMap<String ,String>)ds.getValue();
                     String title=hashMap.get("NoteTitle");
                     String noteText=hashMap.get("Note");
+                    String timeText=hashMap.get("Usersendtime");
 
                     if (noteText!=null){
 
-                        lstNote.add(new NoteData(title,noteText));
+                        lstNote.add(new NoteData(title,noteText,timeText));
                     }
 
                     notesRecyclerViewAdapter.notifyDataSetChanged();
@@ -114,4 +116,5 @@ public class FragmentNotes extends Fragment {
 
 
     }
+
 }

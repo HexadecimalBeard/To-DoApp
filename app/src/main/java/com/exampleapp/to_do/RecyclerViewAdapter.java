@@ -26,7 +26,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     Context mContext;
     List<TodoData> mTodoData;
-    public static int ClickPositionValue;
 
     FirebaseAuth rAuth;
 
@@ -75,7 +74,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         });
 
-        final FragmentTodo fragmentTodo=new FragmentTodo();
         holder.todo_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

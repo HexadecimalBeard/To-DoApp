@@ -5,17 +5,29 @@ public class NoteData  {
 
     private String titleText;
     private String noteText;
+    private String timeText;
+
+
 
     public NoteData(){
 
 
     }
 
-    public NoteData(String title,String note){
+    public NoteData(String title,String note,String timeText){
 
-        titleText=title;
-        noteText=note;
+        this.titleText=title;
+        this.noteText=note;
+        this.timeText=timeText;
 
+    }
+
+    public String getTimeText() {
+        return timeText;
+    }
+
+    public void setTimeText(String timeText) {
+        this.timeText = timeText;
     }
 
     public String getTitleText() {
