@@ -35,4 +35,6 @@
     <string name="fab_todo">To-Do</string>
     <string name="fab_note">Note</string>
     <string name="createtodo_edittexthint">Go to gym!!!</string>
+    <string name="lstnote_enter_note">Note</string>
+    <string name="lstnote_enter_title">Title</string>
 </resources>

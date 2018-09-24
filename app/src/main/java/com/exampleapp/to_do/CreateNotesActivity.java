@@ -23,7 +23,7 @@ import java.util.UUID;
 public class CreateNotesActivity extends AppCompatActivity {
 
     TextView writenoteText,titleText;
-    ImageButton doneButton;
+    ImageButton doneButton, previousPageImageButton;
     FirebaseAuth mAuth;
     FirebaseDatabase database;
     DatabaseReference databaseReference;
@@ -36,6 +36,15 @@ public class CreateNotesActivity extends AppCompatActivity {
         writenoteText=findViewById(R.id.activitycreatenotes_writenoteText);
         titleText=findViewById(R.id.activitycreatenotes_titleText);
         doneButton=findViewById(R.id.activitycreatenotes_doneButton);
+        previousPageImageButton=findViewById(R.id.createnote_previous_button);
+
+        previousPageImageButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent (getApplicationContext(),TodoMainPage.class);
+                startActivity(intent);
+            }
+        });
 
         mAuth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();

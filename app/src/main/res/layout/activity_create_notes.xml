@@ -18,7 +18,7 @@
         app:titleTextColor="#FFFFFF" />
 
     <ImageButton
-        android:id="@+id/gotopreviouspage_button"
+        android:id="@+id/createnote_previous_button"
         android:layout_width="25dp"
         android:layout_height="30dp"
         android:layout_marginBottom="8dp"
@@ -44,7 +44,7 @@
         android:background="#FFF"
         android:ems="10"
         android:inputType="textMultiLine"
-        android:text="Name"
+        android:hint="@string/lstnote_enter_note"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -61,7 +61,7 @@
         android:background="#FFF"
         android:ems="10"
         android:inputType="textMultiLine"
-        android:text="Name"
+        android:hint="@string/lstnote_enter_title"
         app:layout_constraintEnd_toStartOf="@+id/activitycreatenotes_doneButton"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"

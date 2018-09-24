@@ -31,7 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Title:"
+                android:hint="@string/lstnote_enter_title"
                 android:textAllCaps="true"
                 android:textSize="20sp"
                 android:textStyle="bold"
@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="10dp"
-                android:hint="Enter Note"
+                android:hint="@string/lstnote_enter_note"
                 android:textSize="20sp"
                 tools:layout_editor_absoluteX="632dp"
                 tools:layout_editor_absoluteY="423dp" />
