@@ -33,10 +33,11 @@ public class FragmentTodo extends Fragment {
 
     public HashMap<String,List<String>> listHashMap;
 
-    FirebaseAuth mAuth;
+    FirebaseAuth mAuth,rAuth;
     FirebaseDatabase firebaseDatabase;
-    DatabaseReference databaseReference;
+    DatabaseReference databaseReference,removeDatabaseReference;
     RecyclerViewAdapter recyclerViewAdapter;
+
 
 
     public FragmentTodo() {
@@ -61,58 +62,61 @@ public class FragmentTodo extends Fragment {
         mAuth=FirebaseAuth.getInstance();
         firebaseDatabase=FirebaseDatabase.getInstance();
         databaseReference=firebaseDatabase.getReference();
+        removeDatabaseReference=firebaseDatabase.getReference();
 
         getData();
 
-        //lstTodo.add(new TodoData("Go to gym!","8h",R.mipmap.optionsmenuinfo));
 
     }
-
-
 
     public void getData(){
 
         listHashMap =new HashMap<>();
-        final List<String> todoList=new ArrayList<>();
-
         FirebaseUser user=mAuth.getCurrentUser();
         String userId=user.getUid().toString();
 
         DatabaseReference newReference=firebaseDatabase.getReference(userId);
+        if(newReference!=null) {
 
-        Query query=newReference.orderByChild("Usersendtime");
+            Query query = newReference.orderByChild("Usersendtime");
 
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+            query.addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
 
-                lstTodo.clear();
+                    lstTodo.clear();
 
-                for (DataSnapshot ds: dataSnapshot.getChildren()){
+                    for (DataSnapshot ds : dataSnapshot.getChildren()) {
 
-                    HashMap<String,String> hashMap=(HashMap<String ,String>)ds.getValue();
-                    String todo=hashMap.get("Todo");
-                    String todoRemainder=hashMap.get("Time");
+                        HashMap<String, String> hashMap = (HashMap<String, String>) ds.getValue();
+                        String todo = hashMap.get("Todo");
+                        String todoRemainder = hashMap.get("Time");
+                        String specialtime=hashMap.get("Usersendtime");
 
-                    if(todo!=null) {
+                        if (todo != null) {
 
-                        lstTodo.add(new TodoData(todo, todoRemainder, R.mipmap.optionsmenuinfo));
+                            lstTodo.add(new TodoData(todo, todoRemainder, R.mipmap.optionsmenuinfo,specialtime));
+
+                        }
+
+                        recyclerViewAdapter.notifyDataSetChanged();
 
                     }
-
-                    recyclerViewAdapter.notifyDataSetChanged();
-
                 }
-            }
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
 
-                Toast.makeText(getContext(),databaseError.getMessage().toString(),Toast.LENGTH_LONG).show();
-            }
-        });
+                    Toast.makeText(getContext(), databaseError.getMessage().toString(), Toast.LENGTH_LONG).show();
+                }
+            });
 
+        }else{
 
+            lstTodo.clear();
+
+        }
     }
+
 
 }

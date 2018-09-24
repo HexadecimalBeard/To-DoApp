@@ -16,7 +16,6 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ServerValue;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 import com.wdullaer.materialdatetimepicker.time.TimePickerDialog;
 
@@ -51,9 +50,6 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
         reminderButton=findViewById(R.id.createtodo_reminderbutton);
         dateSet=findViewById(R.id.createtodo_createdatetextview);
         timeSet=findViewById(R.id.createtodo_createtimetextview);
-
-
-
 
 
 
@@ -100,8 +96,11 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
     }
 
 
+    @RequiresApi(api = Build.VERSION_CODES.N)
     public void sendTodo(View view){
 
+          DateFormat random=new SimpleDateFormat("HSFSd");
+          String sendtime=random.format(Calendar.getInstance().getTime());
 
 
             String text = createtodo_writebutton.getText().toString();
@@ -109,13 +108,16 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
             UUID uuıd = UUID.randomUUID();
             String uuidString = uuıd.toString();
 
+
             FirebaseUser user = mAuth.getCurrentUser();
             String useremail = user.getEmail().toString();
             String userid = user.getUid().toString();
 
+
+
             databaseReference.child(userid).child(uuidString).child("Todo").setValue(text);
             databaseReference.child(userid).child(uuidString).child("Useremail").setValue(useremail);
-            databaseReference.child(userid).child(uuidString).child("Usersendtime").setValue(ServerValue.TIMESTAMP);
+            databaseReference.child(userid).child(uuidString).child("Usersendtime").setValue(sendtime);
 
 
 
@@ -125,11 +127,15 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
 
             createtodo_writebutton.setText("");
 
+
+
+
             Intent intent = new Intent(getApplicationContext(), TodoMainPage.class);
             startActivity(intent);
 
 
     }
+
 
 
     @RequiresApi(api = Build.VERSION_CODES.N)
@@ -176,3 +182,5 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
 
 //check butonuna bastığında text kısmında veri var mı yok mu kontrol edilecek
 //seçilen tarihin güncel telefon saat ve tarihi ile kıyaslaması yapılacak yok ise hata mesajı verilecek.
+
+//düşünülen kod doğru fakat başka sayfaya geçince arraylist boş gözüküyor.

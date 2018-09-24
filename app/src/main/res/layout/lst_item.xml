@@ -13,31 +13,35 @@
 
     <TextView
         android:id="@+id/lstitem_todoremainderText"
-        android:layout_width="0dp"
-        android:layout_height="17dp"
-        android:layout_marginEnd="11dp"
+        android:layout_width="77dp"
+        android:layout_height="25dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:text="TextView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/lstitem_todoIcon"
-        app:layout_constraintStart_toEndOf="@+id/lstitem_todoText"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.support.v7.widget.AppCompatCheckBox
         android:id="@+id/lstitem_checkBox"
-        android:layout_width="0dp"
+        android:layout_width="77dp"
         android:layout_height="32dp"
-        android:layout_marginEnd="2dp"
-        android:layout_marginStart="36dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:padding="5dp"
-        app:layout_constraintBaseline_toBaselineOf="@+id/lstitem_todoText"
-        app:layout_constraintEnd_toStartOf="@+id/lstitem_todoText"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
         android:id="@+id/lstitem_todoText"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="34dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
         android:padding="5dp"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -47,13 +51,26 @@
 
     <ImageView
         android:id="@+id/lstitem_todoIcon"
-        android:layout_width="0dp"
-        android:layout_height="24dp"
-        android:layout_marginEnd="4dp"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
         android:background="@mipmap/optionsmenuinfo"
+        app:layout_constraintBottom_toBottomOf="@+id/lstitem_specialtime"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lstitem_specialtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#FFF"
+        android:textSize="10sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/lstitem_todoremainderText"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintHorizontal_bias="0.84"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lstitem_todoremainderText"
+        app:layout_constraintVertical_bias="1.0" />
 
 </android.support.constraint.ConstraintLayout>

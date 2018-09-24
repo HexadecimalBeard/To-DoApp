@@ -14,6 +14,7 @@ public class TodoData  {
     private String todoRemainingTime;
     //private int checkboxId;
     private int iconId;
+    private String specialtime;
 
     public HashMap<String,List<String>> listHash;
 
@@ -25,13 +26,21 @@ public class TodoData  {
 
     }
 
-    public TodoData(String todoText, String todoRemainingTime, int iconId) {
+    public TodoData(String todoText, String todoRemainingTime, int iconId,String specialtime) {
         this.todoText = todoText;
         this.todoRemainingTime = todoRemainingTime;
         //this.checkboxId = checkboxId;
         this.iconId = iconId;
+        this.specialtime=specialtime;
     }
 
+    public String getSpecialtime() {
+        return specialtime;
+    }
+
+    public void setSpecialtime(String specialtime) {
+        this.specialtime = specialtime;
+    }
 
     public String getTodoText() {
         return todoText;
