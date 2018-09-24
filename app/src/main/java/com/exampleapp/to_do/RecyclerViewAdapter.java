@@ -55,6 +55,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.todo_icon.setImageResource(mTodoData.get(position).getIconId());
         holder.todo_specialtime.setText(mTodoData.get(position).getSpecialtime());
 
+        holder.todo_icon.setEnabled(false);
 
         holder.todo_checkbox.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -64,12 +65,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     holder.todo_text.setAlpha(0.75f);
                     holder.todo_icon.setBackgroundResource(R.mipmap.todogarbagecan);
                     holder.todo_remainderText.setVisibility(View.INVISIBLE);
-                    holder.todo_icon.setClickable(true);
+                    holder.todo_icon.setEnabled(true);
                 }else{
                     holder.todo_text.setAlpha(1);
                     holder.todo_icon.setBackgroundResource(R.mipmap.remaindericon);
                     holder.todo_remainderText.setVisibility(View.VISIBLE);
-                    holder.todo_icon.setClickable(false);
+                    holder.todo_icon.setEnabled(false);
                 }
             }
         });
