@@ -26,7 +26,7 @@ public class TodoData  {
 
     }
 
-    public TodoData(String todoText, String todoRemainingTime, int iconId,String specialtime) {
+    public TodoData(String todoText, String todoRemainingTime,String specialtime) {
         this.todoText = todoText;
         this.todoRemainingTime = todoRemainingTime;
         //this.checkboxId = checkboxId;

@@ -95,7 +95,7 @@ public class FragmentTodo extends Fragment {
 
                         if (todo != null) {
 
-                            lstTodo.add(new TodoData(todo, todoRemainder, R.mipmap.optionsmenuinfo,specialtime));
+                            lstTodo.add(new TodoData(todo, todoRemainder,specialtime));
 
                         }
 

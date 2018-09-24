@@ -34,6 +34,8 @@ public class TodoMainPage extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference databaseReference;
 
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,7 +58,6 @@ public class TodoMainPage extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
 
 
-
         mAuth=FirebaseAuth.getInstance();
         database=FirebaseDatabase.getInstance();
         databaseReference=database.getReference();
@@ -72,7 +73,6 @@ public class TodoMainPage extends AppCompatActivity {
         FabClose=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.fab_close);
         FabRClockwise=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_clockwise);
         FabRantiClockwise=AnimationUtils.loadAnimation(getApplicationContext(),R.anim.rotate_anticlockwise);
-
 /*
 
         todomainpage_textviewexpend = findViewById(R.id.lstgroup_Item);
@@ -168,53 +168,10 @@ public class TodoMainPage extends AppCompatActivity {
             mAuth.signOut();
             Intent intent=new Intent(getApplicationContext(),LoginActivity.class);
             startActivity(intent);
-
         }
-
         return super.onOptionsItemSelected(item);
     }
 
-  /*  public void getData(){
 
-        listDataHeader=new ArrayList<>();
-        listHash=new HashMap<>();
 
-        listDataHeader.add("To-Do");
-
-        final List<String> todolist=new ArrayList<>();
-
-        FirebaseUser user=mAuth.getCurrentUser();
-        String userid=user.getUid().toString();
-
-        DatabaseReference newReference= database.getReference(userid);
-
-        Query query=newReference.orderByChild("Usersendtime");
-
-        query.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                todolist.clear();
-
-                for (DataSnapshot ds:dataSnapshot.getChildren()){
-
-                    HashMap<String,String> hashMap=(HashMap<String, String>)ds.getValue();
-                    String todo=hashMap.get("Todo");
-
-                    //bu kısımda birden fazla ds get Value alınacak.
-
-                    todolist.add(todo);
-
-                    expandableListView.deferNotifyDataSetChanged();
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-                Toast.makeText(getApplicationContext(),databaseError.getMessage().toString(),Toast.LENGTH_LONG).show();
-            }
-        });
-        listHash.put(listDataHeader.get(0),todolist);
-    }
-    */
 }

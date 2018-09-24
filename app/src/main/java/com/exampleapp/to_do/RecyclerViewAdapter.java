@@ -34,7 +34,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
         this.mContext=mContext;
         this.mTodoData=mTodoData;
-
     }
 
     @NonNull
@@ -43,14 +42,11 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         View v;
         v= LayoutInflater.from(mContext).inflate(R.layout.lst_item,parent,false);
         MyViewHolder vHolder=new MyViewHolder(v);
-
-
-
         return vHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolder holder, final int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolder holder, final int position) {
 
         final int itemPos=position;
         final TodoData todoDataid=mTodoData.get(position);
@@ -60,7 +56,23 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.todo_specialtime.setText(mTodoData.get(position).getSpecialtime());
 
 
+        holder.todo_checkbox.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
+                if(holder.todo_checkbox.isChecked()){
+                    holder.todo_text.setAlpha(0.75f);
+                    holder.todo_icon.setBackgroundResource(R.mipmap.todogarbagecan);
+                    holder.todo_remainderText.setVisibility(View.INVISIBLE);
+                    holder.todo_icon.setClickable(true);
+                }else{
+                    holder.todo_text.setAlpha(1);
+                    holder.todo_icon.setBackgroundResource(R.mipmap.remaindericon);
+                    holder.todo_remainderText.setVisibility(View.VISIBLE);
+                    holder.todo_icon.setClickable(false);
+                }
+            }
+        });
 
         final FragmentTodo fragmentTodo=new FragmentTodo();
         holder.todo_icon.setOnClickListener(new View.OnClickListener() {
@@ -68,27 +80,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             public void onClick(View v) {
 
                delete(itemPos);
-
             }
         });
-
     }
-
-
     private void delete(final int position){
         final TodoData todoDataid=mTodoData.get(position);
         rAuth= FirebaseAuth.getInstance();
         final FirebaseUser user=rAuth.getCurrentUser();
         final String userid=user.getUid().toString();
 
-        final String todo=todoDataid.getTodoText().toString();
-        final String specialtime=todoDataid.getSpecialtime().toString();
-
-
-
-       // mTodoData.remove(position);
-       //  notifyItemRemoved(position);
-       // notifyItemRangeChanged(position,mTodoData.size());
+        final String todo=todoDataid.getTodoText();
+        final String specialtime=todoDataid.getSpecialtime();
 
         final DatabaseReference newReference=FirebaseDatabase.getInstance().getReference().child(userid);
         Query query=newReference.orderByChild("Todo");
@@ -115,23 +117,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     }
                 }
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
         });
-
     }
-
-
-
-
     @Override
     public int getItemCount() {
         return mTodoData.size();
     }
-
 
     public  class MyViewHolder extends RecyclerView.ViewHolder{
 
@@ -141,7 +136,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         private ImageView todo_icon;
         private TextView todo_specialtime;
 
-
         public MyViewHolder(View itemView) {
             super(itemView);
 
@@ -150,11 +144,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             todo_checkbox=itemView.findViewById(R.id.lstitem_checkBox);
             todo_icon=itemView.findViewById(R.id.lstitem_todoIcon);
             todo_specialtime=itemView.findViewById(R.id.lstitem_specialtime);
-
-
-
         }
     }
-
-
 }

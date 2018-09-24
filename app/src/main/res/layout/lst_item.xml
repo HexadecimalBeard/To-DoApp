@@ -55,7 +55,7 @@
         android:layout_height="30dp"
         android:layout_marginBottom="8dp"
         android:layout_marginTop="8dp"
-        android:background="@mipmap/optionsmenuinfo"
+        android:background="@mipmap/remaindericon"
         app:layout_constraintBottom_toBottomOf="@+id/lstitem_specialtime"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
