@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".CreateNotesActivity">
+    tools:context=".CreateNotesActivity"
+    android:background="@android:color/transparent">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/creatnote_toolbar"
@@ -15,7 +16,23 @@
         android:theme="?attr/actionBarTheme"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:titleTextColor="#FFFFFF" />
+        app:titleTextColor="#FFFFFF" >
+    </android.support.v7.widget.Toolbar>
+
+    <ImageButton
+        android:id="@+id/activitycreatenotes_doneButton"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:background="@mipmap/createtodo_doneicon"
+        android:onClick="sendNotes"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.100000024">
+
+    </ImageButton>
 
     <ImageButton
         android:id="@+id/createnote_previous_button"
@@ -35,49 +52,42 @@
 
     <EditText
         android:id="@+id/activitycreatenotes_writenoteText"
-        android:layout_width="390dp"
-        android:layout_height="wrap_content"
+        android:layout_width="0dp"
+        android:layout_height="103dp"
         android:layout_marginBottom="8dp"
         android:layout_marginEnd="8dp"
-        android:layout_marginStart="8dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="8dp"
-        android:background="#FFF"
+        android:background="@android:color/transparent"
         android:ems="10"
-        android:inputType="textMultiLine"
         android:hint="@string/lstnote_enter_note"
+        android:gravity="start"
+        android:inputType="textMultiLine"
+        android:textColor="#3C3C3C"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/activitycreatenotes_titleText"
-        app:layout_constraintVertical_bias="0.23000002" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/activitycreatenotes_titleText"
-        android:layout_width="312dp"
-        android:layout_height="40dp"
+        android:layout_width="0dp"
+        android:layout_height="55dp"
         android:layout_marginEnd="8dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="76dp"
-        android:background="#FFF"
+        android:layout_marginTop="60dp"
+        android:background="@android:color/transparent"
         android:ems="10"
-        android:inputType="textMultiLine"
         android:hint="@string/lstnote_enter_title"
+        android:inputType="textCapSentences"
+        android:textColor="#000"
+        android:textSize="20sp"
         app:layout_constraintEnd_toStartOf="@+id/activitycreatenotes_doneButton"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/activitycreatenotes_doneButton"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginTop="76dp"
-        android:background="@mipmap/createtodo_doneicon"
-        android:onClick="sendNotes"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
 
-    </ImageButton>
 </android.support.constraint.ConstraintLayout>

@@ -2,6 +2,7 @@ package com.exampleapp.to_do;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -45,11 +46,12 @@ public class NotesRecyclerViewAdapter extends RecyclerView.Adapter<NotesRecycler
     }
 
     @Override
-    public void onBindViewHolder(@NonNull MyViewHolderNote holder, int position) {
+    public void onBindViewHolder(@NonNull final MyViewHolderNote holder, int position) {
         final int itempos=position;
         holder.titleText.setText(mNoteData.get(position).getTitleText());
         holder.noteText.setText(mNoteData.get(position).getNoteText());
         holder.timeText.setText(mNoteData.get(position).getTimeText());
+        holder.removeNoteButton.setVisibility(View.INVISIBLE);
         holder.removeNoteButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -57,6 +59,14 @@ public class NotesRecyclerViewAdapter extends RecyclerView.Adapter<NotesRecycler
                 // Not silme islemi...
                 //
                 delete(itempos);
+            }
+        });
+
+        holder.cardView.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View view) {
+                holder.removeNoteButton.setVisibility(View.VISIBLE);
+                return true;
             }
         });
 
@@ -113,6 +123,7 @@ public class NotesRecyclerViewAdapter extends RecyclerView.Adapter<NotesRecycler
         private TextView noteText;
         private ImageButton removeNoteButton;
         private TextView timeText;
+        private CardView cardView;
 
         public MyViewHolderNote(View itemView) {
             super(itemView);
@@ -121,6 +132,7 @@ public class NotesRecyclerViewAdapter extends RecyclerView.Adapter<NotesRecycler
             noteText=itemView.findViewById(R.id.lstnoteitem_noteText);
             removeNoteButton=itemView.findViewById(R.id.lstnote_removebutton);
             timeText=itemView.findViewById(R.id.lstitemnote_specialtime);
+            cardView=itemView.findViewById(R.id.lstnote_cardview);
 
         }
     }
