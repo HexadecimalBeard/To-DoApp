@@ -55,7 +55,6 @@ public class FragmentNotes extends Fragment {
         mrecyclerviewnote.setLayoutManager(new LinearLayoutManager(getActivity()));
         mrecyclerviewnote.setAdapter(notesRecyclerViewAdapter);
 
-
         return v;
     }
 

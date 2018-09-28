@@ -102,33 +102,23 @@ public class CreateTodoActivity extends AppCompatActivity implements DatePickerD
           DateFormat random=new SimpleDateFormat("HSFSd");
           String sendtime=random.format(Calendar.getInstance().getTime());
 
-
             String text = createtodo_writebutton.getText().toString();
 
             UUID uuıd = UUID.randomUUID();
             String uuidString = uuıd.toString();
 
-
             FirebaseUser user = mAuth.getCurrentUser();
             String useremail = user.getEmail().toString();
             String userid = user.getUid().toString();
-
-
 
             databaseReference.child(userid).child(uuidString).child("Todo").setValue(text);
             databaseReference.child(userid).child(uuidString).child("Useremail").setValue(useremail);
             databaseReference.child(userid).child(uuidString).child("Usersendtime").setValue(sendtime);
 
-
-
-
            // databaseReference.child(userid).child(uuidString).child("Date").setValue(dateSet.getText().toString());
             databaseReference.child(userid).child(uuidString).child("Time").setValue(timeSet.getText().toString());
 
             createtodo_writebutton.setText("");
-
-
-
 
             Intent intent = new Intent(getApplicationContext(), TodoMainPage.class);
             startActivity(intent);

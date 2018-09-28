@@ -112,11 +112,6 @@ public class FragmentTodo extends Fragment {
             });
 
         }else{
-
             lstTodo.clear();
-
-        }
-    }
-
-
+        } }
 }

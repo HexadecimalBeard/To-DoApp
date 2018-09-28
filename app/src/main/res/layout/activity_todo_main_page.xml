@@ -22,29 +22,29 @@
     <android.support.design.widget.TabLayout
         android:id="@+id/activitytodo_tabLayout"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginBottom="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/coordinatorLayout"
+        android:layout_marginTop="0.1dp"
+        android:background="#FFA726"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/todomainpage_toolbar"
         app:layout_constraintVertical_bias="0.0"
         app:tabGravity="fill"
-        android:layout_marginTop="0.1dp"
-        android:background="#FFA726"
-        app:tabTextColor="#3C3C3C"
+        app:tabIndicatorColor="#3C3C3C"
         app:tabSelectedTextColor="#FFF"
-        app:tabIndicatorColor="#3C3C3C">
-    </android.support.design.widget.TabLayout>
+        app:tabTextColor="#3C3C3C"></android.support.design.widget.TabLayout>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/activitytodo_viewPager"
         android:layout_width="match_parent"
-        android:layout_height="546dp"
+        android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/activitytodo_tabLayout">
+        app:layout_constraintTop_toBottomOf="@+id/guideline3">
 
     </android.support.v4.view.ViewPager>
 
@@ -187,6 +187,13 @@
         android:layout_height="wrap_content"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.83" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.15781488" />
 
 
 </android.support.constraint.ConstraintLayout>

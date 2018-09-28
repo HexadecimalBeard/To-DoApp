@@ -57,8 +57,7 @@ public class NotesRecyclerViewAdapter extends RecyclerView.Adapter<NotesRecycler
             public void onClick(View view) {
                 //
                 // Not silme islemi...
-                //
-                delete(itempos);
+
             }
         });
 
@@ -66,6 +65,12 @@ public class NotesRecyclerViewAdapter extends RecyclerView.Adapter<NotesRecycler
             @Override
             public boolean onLongClick(View view) {
                 holder.removeNoteButton.setVisibility(View.VISIBLE);
+                holder.removeNoteButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        delete(itempos);
+                    }
+                });
                 return true;
             }
         });

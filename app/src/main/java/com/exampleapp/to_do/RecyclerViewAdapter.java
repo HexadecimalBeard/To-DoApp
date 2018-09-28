@@ -54,6 +54,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.todo_icon.setImageResource(mTodoData.get(position).getIconId());
         holder.todo_specialtime.setText(mTodoData.get(position).getSpecialtime());
 
+
+
         holder.todo_icon.setEnabled(false);
 
         holder.todo_checkbox.setOnClickListener(new View.OnClickListener() {
@@ -65,6 +67,12 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
                     holder.todo_icon.setBackgroundResource(R.mipmap.todogarbagecan);
                     holder.todo_remainderText.setVisibility(View.INVISIBLE);
                     holder.todo_icon.setEnabled(true);
+                    holder.todo_icon.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            delete(itemPos);
+                        }
+                    });
                 }else{
                     holder.todo_text.setAlpha(1);
                     holder.todo_icon.setBackgroundResource(R.mipmap.remaindericon);
@@ -74,13 +82,13 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
             }
         });
 
-        holder.todo_icon.setOnClickListener(new View.OnClickListener() {
+       /* holder.todo_icon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
                delete(itemPos);
             }
-        });
+        });*/
     }
     private void delete(final int position){
         final TodoData todoDataid=mTodoData.get(position);
@@ -105,14 +113,16 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
                     if(todo==todoText && specialtime==special){
 
+
                         //burada silme işlemi
                         ds.getRef().removeValue();
-
-                        //silme her zaman gerçekleşmiyor (if.tasksuccesfull) dene
 
                         mTodoData.remove(position);
                         notifyItemRemoved(position);
                         notifyItemRangeChanged(position,mTodoData.size());
+                        //silme her zaman gerçekleşmiyor (if.tasksuccesfull) dene
+
+
                     }
                 }
             }
@@ -134,6 +144,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         private CheckBox todo_checkbox;
         private ImageView todo_icon;
         private TextView todo_specialtime;
+
 
         public MyViewHolder(View itemView) {
             super(itemView);
